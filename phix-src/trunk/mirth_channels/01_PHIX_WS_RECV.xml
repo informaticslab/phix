@@ -1,0 +1,130 @@
+<!--
+   Copyright 2011  U.S. Centers for Disease Control and Prevention
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   $Id$
+  -->
+<com.mirth.connect.model.Channel>
+  <id>6af27db1-d44d-443b-bedd-6e95ca2eb149</id>
+  <name>01_PHIX_WS_RECV</name>
+  <description></description>
+  <enabled>false</enabled>
+  <version>2.0.1.5164</version>
+  <lastModified>
+    <time>1324504486703</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>27</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="port">8081</property>
+      <property name="DataType">Web Service Listener</property>
+      <property name="receiverUsernames">&lt;list/&gt;</property>
+      <property name="host">0.0.0.0</property>
+      <property name="receiverServiceName">Mirth</property>
+      <property name="receiverClassName">com.mirth.connect.connectors.ws.DefaultAcceptMessage</property>
+      <property name="receiverResponseValue">None</property>
+      <property name="receiverPasswords">&lt;list/&gt;</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundProtocol>HL7V2</inboundProtocol>
+      <outboundProtocol>HL7V2</outboundProtocol>
+      <inboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictParser">false</property>
+        <property name="useStrictValidation">false</property>
+        <property name="handleSubcomponents">false</property>
+      </inboundProperties>
+      <outboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictParser">false</property>
+        <property name="useStrictValidation">false</property>
+        <property name="handleSubcomponents">false</property>
+      </outboundProperties>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>Web Service Listener</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <version>2.0.1.5164</version>
+  </sourceConnector>
+  <destinationConnectors>
+    <com.mirth.connect.model.Connector>
+      <name>01_PHIX destination</name>
+      <properties>
+        <property name="DataType">Channel Writer</property>
+        <property name="synchronised">0</property>
+        <property name="template">${message.encodedData}</property>
+        <property name="host">8db43bb9-65ad-4ce0-a2e3-4cb62e140019</property>
+      </properties>
+      <transformer>
+        <steps/>
+        <inboundProtocol>HL7V2</inboundProtocol>
+        <outboundProtocol>HL7V2</outboundProtocol>
+        <inboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Channel Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.0.1.5164</version>
+    </com.mirth.connect.model.Connector>
+  </destinationConnectors>
+  <properties>
+    <property name="synchronous">true</property>
+    <property name="clearGlobalChannelMap">true</property>
+    <property name="transactional">false</property>
+    <property name="initialState">started</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="max_message_age">-1</property>
+    <property name="store_messages">true</property>
+    <property name="encryptData">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</shutdownScript>
+</com.mirth.connect.model.Channel>

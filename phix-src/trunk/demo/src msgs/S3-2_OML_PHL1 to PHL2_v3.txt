@@ -1,0 +1,51 @@
+MSH|^~\&|SPHL^2.16.840.1.114222.4.3.2.5.2.11^ISO|PHL1^2.16.840.1.114222.4.3.2.5.2.6002^ISO|SPHL_APPL^2.16.840.1.114222.4.3.2.5.2.51^ISO|PHL2^2.16.840.1.114222.4.3.2.5.2.7001^ISO|20110511070000.0-0600||OML^O33^OML_O33|2.16.840.1.114222.4.3.2.5.2.6002.20110502071607.0103|P|2.6|||||||||PHLIP_ETOR_Sal_v1.0.2^PHIN^2.16.840.1.114222.4.10.3^ISO~PHLIP_ETOR_Vocab_Sal_v1.0.2^PHIN^2.16.840.1.114222.4.10.4^ISO
+PID|1||987654556A^^^PHL1&2.16.840.1.114222.4.3.2.5.2.6002&ISO^MR||Williams^John^T^^^^L||19580625|M||2106-3^White^HL70005^^^^2.6|685 Smiley Pl.^^Cincinnati^OH^45241^USA^^^31055||^PRN^PH^^^987^1234567|||||||||N^Not Hispanic or Latino^HL70189^^^^2.6||||||||N
+SPM|1|X200143N03&PHL1&2.16.840.1.114222.4.3.2.5.2.6002&ISO||258580003^Whole blood sample^SCT^^^^20110131|||||||||||||20110510163000.0-0600
+
+OBX|1|CWE|PLT210^Original Specimen Type^PLT^^^^1.0.4||119297000^Blood specimen^SCT^^^^20110131^^Test Blood Specimen||||||F|||20110510163000.0-0600
+
+OBX|2|NM|35659-2^Age at specimen collection^LN^^^^2.27||52|a^year^UCUM^^^^1.7|||||F|||20110510163000.0-0600
+ORC|NW|56801-PHL-222^PHL1^2.16.840.1.114222.4.3.2.5.2.6002^ISO|||||||20110209081500.0-0600|||1412941681^Jones^Mary^A^^Dr^^^NPI&2.16.840.1.114222.4.3.2.5.2.400&ISO^L^^^NPI^^^^^^^^MD||^WPN^PH^^^402^5551212^104^Business hours are 8-5 CST|||||||State Public Health Laboratory^L^^^^CLIA&2.16.840.1.114222.4.3.2.5.2.100&ISO^XX^^^28D0012345|9811 State Medical Center^^Cleveland^OH^45242^USA|^WPN^PH^^^402^5551000|8808 North State Cir.^Micro Lab^Cleveland^OH^45242-3698^USA
+
+OBR|1|56801-PHL-222^PHL1^2.16.840.1.114222.4.3.2.5.2.6002^ISO||PLT110^Salmonella Identification and Serotyping Battery^PLT^^^^1.0.4|||20110510163000.0-0600|||||||||1412941681^Jones^Mary^A^^Dr^^^NPI&2.16.840.1.114222.4.3.2.5.2.400&ISO^L^^^NPI^^^^^^^^MD|^WPN^PH^^^402^5551212^104^Business hours are 8-5 CST 
+NTE|1|L|Notify immediately after receiving new results.|RE^Remark^HL70364^^^^2.6
+ROL||AD|POC^Point Of Contact^HL70443^^^^2.6|987-A^Smith^Ken^^Sr.^Dr.^^^PHL1&2.16.840.1.114222.4.3.2.5.2.6002&ISO^^^^EN^^^^^^^^PHD||||||SUB^Submitter^HL70406^^^^2.6|9811 State Medical Center^^Cleveland^OH^45242|^WPN^PH^^^402^3342210^10~^WPN^FX^^^402^3341001~^^Internet^ken.smith@phl1.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

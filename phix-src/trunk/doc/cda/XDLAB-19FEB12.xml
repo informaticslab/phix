@@ -1,0 +1,298 @@
+<?xml-stylesheet type='text/xsl' href='http://code.phiresearchlab.org/svn/phix/phix-src/trunk/doc/cda/cda.xsl'?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+  <realmCode code="US" />
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+  <templateId root="1.3.6.1.4.1.19376.1.3.3" />
+  <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848395" />
+  <code code="11502-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="LABORATORY REPORT.TOTAL" />
+  <title>Laboratory Report</title>
+  <effectiveTime value="20120217154728" />
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal" />
+  <languageCode code="en-US" />
+  <setId root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848458" />
+  <recordTarget>
+    <patientRole>
+      <id root="1.3.6.1.4.1.21367.13.20.3000" extension="BLUE5065" />
+      <addr>
+        <streetAddressLine>123 Six Forks Rd</streetAddressLine>
+        <city>Ralrigh</city>
+        <state>NC</state>
+        <postalCode>27603</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="" />
+      <patient>
+        <name>
+          <given>John</given>
+          <family>Doe</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19830404" />
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20120217154728" />
+    <assignedAuthor>
+      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848489" />
+      <addr />
+      <telecom value="" />
+      <assignedPerson>
+        <name>
+          <given>Kyle</given>
+          <family>Thorson</family>
+          <suffix></suffix>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848505" />
+        <name>HealthMatics</name>
+        <telecom></telecom>
+        <addr />
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
+          <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848520" />
+          <code code="18719-5" displayName="CHEMISTRY STUDIES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Laboratory Chemistry Results</title>
+          <text>
+            <content ID="T50">Nucleic Acid Amplification Test: Detected Mycobacterium tuberculosis complex DNA Date: 2012-01-09</content>
+          </text>
+          <entry typeCode="DRIV">
+            <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+            <act classCode="ACT" moodCode="EVN">
+              <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Microbiology Studies" />
+              <statusCode code="completed" />
+              <entryRelationship typeCode="COMP">
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.2" />
+                  <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848536" />
+                  <code code="33882-2" displayName="Specimen Collection" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <effectiveTime>
+                    <low value="20120217154728" />
+                  </effectiveTime>
+                  <performer>
+                    <assignedEntity>
+                      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848536" />
+                      <representedOrganization>
+                        <telecom value="" />
+                        <addr />
+                      </representedOrganization>
+                    </assignedEntity>
+                  </performer>
+                  <participant typeCode="PRD">
+                    <participantRole classCode="SPEC">
+                      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848552" />
+                      <playingEntity classCode="ENT">
+                        <code code="119335007" displayName="Coughed Sputum" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" />
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="COMP">
+                    <act classCode="ACT" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.3" />
+                      <id extension="1329518848567" root="1.3.6.1.4.1.21367.13.60.65" />
+                      <code code="SPRECEIVE" displayName="Receive Time" codeSystem="1.3.5.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
+                      <effectiveTime>
+                        <low value="20120217154728" />
+                      </effectiveTime>
+                    </act>
+                  </entryRelationship>
+                </procedure>
+              </entryRelationship>
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="CLUSTER" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.1" />
+                  <statusCode code="completed" />
+                  <component>
+                    <observation classCode="COND" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.1.1" />
+                      <code code="170516003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Notification of Disease">
+                        <qualifier>
+                          <name code="105590001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Substance" />
+                          <value code="116154003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Patient" />
+                        </qualifier>
+                      </code>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="10220" codeSystem="2.16.840.1.114222.4.5.277" codeSystemName="PH_NotifiableEvent_Disease_Condition_CDC_NNDSS" displayName="Tuberculosis" />
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                  <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848598" />
+                  <code code="64327005" displayName="Acid Fast Stain" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                    <originalText>
+                      <reference value="T50" />
+                    </originalText>
+                  </code>
+                  <text></text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20120217154728" />
+                  </effectiveTime>
+                  <value xsi:type="CE" code="243365003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Acid fast bacillus" />
+                  <interpretationCode displayName="Abnormal" codeSystem="2.16.840.1.113883.5.83" code="A"/>
+				  <methodCode code="0144" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Acid fast stain, fluorochrome" />
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                  <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848614" />
+                  <code code="38379-4" displayName="Mycobacterium tuberculosis complex DNA Amplification" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                    <originalText>
+                      <reference value="T51" />
+                    </originalText>
+                  </code>
+                  <text></text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20120217154728" />
+                  </effectiveTime>                  
+				  <value xsi:type="CE" code="113858008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Mycobacterium tuberculosis complex" />
+                  <interpretationCode displayName="Abnormal" codeSystem="2.16.840.1.113883.5.83" code="A"/>
+				  <methodCode code="0132" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Polymerase chain reaction" />
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                  <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848630" />
+                  <code code="xxx" displayName="Culture Identification Test by AccuProbe" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                    <originalText>
+                      <reference value="T52" />
+                    </originalText>
+                  </code>
+                  <text></text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20120217154728" />
+                  </effectiveTime>
+                  <value xsi:type="CE" code="113858008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Mycobacterium tuberculosis complex" />
+                  <interpretationCode displayName="Abnormal" codeSystem="2.16.840.1.113883.5.83" code="A"/>
+				  <methodCode code="0126" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Nucleic Acid Probe" />
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                  <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848645" />
+                  <code code="xxx" displayName="Organism Identification by Biochemicals" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                    <originalText>
+                      <reference value="T53" />
+                    </originalText>
+                  </code>
+                  <text></text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20120217154728" />
+                  </effectiveTime>
+                  <value xsi:type="CE" code="113861009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Mycobacterium tuberculosis" />
+                  <interpretationCode displayName="Abnormal" codeSystem="2.16.840.1.113883.5.83" code="A"/>
+				  <methodCode code="0033" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Chemical method" />
+                </observation>
+              </entryRelationship>              
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <code code="29576-0" displayName="Mycobacterium Antibiotic Susceptibility Panel" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20120217154728" />
+                  </effectiveTime>
+                  <component typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848692" />
+                      <code code="25217-1" displayName="Isoniazid 0.1 ug/mL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text></text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20120217154728" />
+                      </effectiveTime>
+					  <value value="0.1" xsi:type="PQ" unit="ug/mL"/>
+					  <interpretationCode displayName="Susceptible" codeSystem="2.16.840.1.113883.5.83" code="S"/>
+                      <methodCode code="0276" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Slow Mycobacteria Susceptibility"/>
+                    </observation>
+                  </component>
+                  <component typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848692" />
+                      <code code="48177-0" displayName="Streptomycin 1.0 ug/mL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text></text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20120217154728" />
+                      </effectiveTime>
+					  <value value="1.0" xsi:type="PQ" unit="ug/mL"/>
+					  <interpretationCode displayName="Resistant" codeSystem="2.16.840.1.113883.5.83" code="R"/>
+                      <methodCode code="0276" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Slow Mycobacteria Susceptibility"/>
+                    </observation>
+                  </component>
+                  <component typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848708" />
+                      <code code="25199-1" displayName="Rifampin 1.0 ug/mL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text></text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20120217154728" />
+                      </effectiveTime>
+					  <value value="1.0" xsi:type="PQ" unit="ug/mL"/>
+					  <interpretationCode displayName="Susceptible" codeSystem="2.16.840.1.113883.5.83" code="S"/>
+                      <methodCode code="0276" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Slow Mycobacteria Susceptibility"/>
+                    </observation>
+                  </component>
+                  <component typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848723" />
+                      <code code="25194-2" displayName="Ethambutol 5.0 ug/mL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text></text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20120217154728" />
+                      </effectiveTime>
+					  <value value="5.0" xsi:type="PQ" unit="ug/mL"/>
+					  <interpretationCode displayName="Resistant" codeSystem="2.16.840.1.113883.5.83" code="R"/>
+                      <methodCode code="0276" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Slow Mycobacteria Susceptibility"/>
+                    </observation>
+                  </component>
+                  <component typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="1.3.6.1.4.1.21367.13.60.65" extension="1329518848723" />
+                      <code code="25229-6" displayName="Pyrazinamide 100 ug/mL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text></text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20120217154728" />
+                      </effectiveTime>
+					  <value value="100" xsi:type="PQ" unit="ug/mL"/>
+					  <interpretationCode displayName="Susceptible" codeSystem="2.16.840.1.113883.5.83" code="S"/>
+                      <methodCode code="0276" codeSystem="2.16.840.1.113883.5.84" codeSystemName="ObservationMethod" displayName="Slow Mycobacteria Susceptibility"/>
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

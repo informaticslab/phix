@@ -1,0 +1,626 @@
+<channel>
+  <id>f1809492-372c-461a-9a66-07b62802811b</id>
+  <name>03_PHIX_PROCESS_CDA</name>
+  <description></description>
+  <enabled>false</enabled>
+  <version>2.1.1.5490</version>
+  <lastModified>
+    <time>1329347392437</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>29</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="DataType">File Reader</property>
+      <property name="FTPAnonymous">1</property>
+      <property name="autoDelete">0</property>
+      <property name="binary">0</property>
+      <property name="charsetEncoding">DEFAULT_ENCODING</property>
+      <property name="checkFileAge">1</property>
+      <property name="fileAge">1000</property>
+      <property name="fileFilter">*</property>
+      <property name="host">c:/test</property>
+      <property name="moveToDirectory">c:/test_processed</property>
+      <property name="moveToErrorDirectory">c:/test_error</property>
+      <property name="moveToPattern">${ORIGINALNAME}</property>
+      <property name="passive">1</property>
+      <property name="password">anonymous</property>
+      <property name="pollingFrequency">1000</property>
+      <property name="pollingType">interval</property>
+      <property name="processBatchFiles">0</property>
+      <property name="regex">0</property>
+      <property name="scheme">file</property>
+      <property name="secure">1</property>
+      <property name="sortAttribute">date</property>
+      <property name="timeout">10000</property>
+      <property name="username">anonymous</property>
+      <property name="validateConnections">1</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundTemplate encoding="base64"></inboundTemplate>
+      <inboundProtocol>XML</inboundProtocol>
+      <outboundProtocol>XML</outboundProtocol>
+      <inboundProperties>
+        <property name="stripNamespaces">true</property>
+      </inboundProperties>
+      <outboundProperties>
+        <property name="stripNamespaces">true</property>
+      </outboundProperties>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>File Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <version>2.1.1.5490</version>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector>
+      <name>Call ComponentRoutingService</name>
+      <properties>
+        <property name="DataType">Web Service Sender</property>
+        <property name="dispatcherAttachmentContents">&lt;list/&gt;</property>
+        <property name="dispatcherAttachmentNames">&lt;list/&gt;</property>
+        <property name="dispatcherAttachmentTypes">&lt;list/&gt;</property>
+        <property name="dispatcherEnvelope">&lt;soapenv:Envelope  
+  xmlns:q0=&quot;http://phlissa.cdc.gov/&quot;  
+  xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;  
+  xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;  
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;  
+  &lt;soapenv:Header&gt;  
+  &lt;/soapenv:Header&gt;
+  &lt;soapenv:Body&gt;  
+    &lt;q0:getRoutingData&gt;
+      &lt;msgType&gt;CDA&lt;/msgType&gt;
+      &lt;triggerEvent&gt;NONE&lt;/triggerEvent&gt;
+      &lt;hl7Version&gt;v3&lt;/hl7Version&gt;
+      &lt;sendingFacility&gt;PHIX&lt;/sendingFacility&gt;
+      &lt;receivingFacility&gt;ATLAS&lt;/receivingFacility&gt;
+    &lt;/q0:getRoutingData&gt;
+  &lt;/soapenv:Body&gt;  
+&lt;/soapenv:Envelope&gt;
+
+</property>
+        <property name="dispatcherOneWay">0</property>
+        <property name="dispatcherOperation">getRoutingData</property>
+        <property name="dispatcherPassword"></property>
+        <property name="dispatcherPort">{http://phlissa.cdc.gov/}ComponentRoutingServicePort</property>
+        <property name="dispatcherReplyChannelId">sink</property>
+        <property name="dispatcherService">{http://phlissa.cdc.gov/}ComponentRoutingService</property>
+        <property name="dispatcherSoapAction"></property>
+        <property name="dispatcherUseAuthentication">0</property>
+        <property name="dispatcherUseMtom">0</property>
+        <property name="dispatcherUsername"></property>
+        <property name="dispatcherWsdlOperations">&lt;list&gt;
+  &lt;string&gt;getRoutingData&lt;/string&gt;
+&lt;/list&gt;</property>
+        <property name="dispatcherWsdlUrl">http://localhost:9090/ComponentRoutingService/ComponentRoutingService?wsdl</property>
+        <property name="host">localhost:9090/ComponentRoutingService/ComponentRoutingService?wsdl</property>
+        <property name="queuePollInterval">200</property>
+        <property name="reconnectMillisecs">10000</property>
+        <property name="rotateQueue">0</property>
+        <property name="usePersistentQueues">0</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>transformer</name>
+            <script>try
+{
+  logger.info(&quot;Calling ComponentRoutingService&quot;);
+
+}&#xd;catch(e)
+{
+  logger.error(&quot;Error in Call ComponentRoutingService Transformer: &quot; + e.message);
+}</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>try
+{
+  logger.info(&quot;Calling ComponentRoutingService&quot;);
+
+}&#xd;catch(e)
+{
+  logger.error(&quot;Error in Call ComponentRoutingService Transformer: &quot; + e.message);
+}</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>XML</inboundProtocol>
+        <outboundProtocol>XML</outboundProtocol>
+        <inboundProperties>
+          <property name="stripNamespaces">true</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="stripNamespaces">true</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Web Service Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.1.5490</version>
+    </connector>
+    <connector>
+      <name>Process ComponentRoutingService Response</name>
+      <properties>
+        <property name="DataType">Channel Writer</property>
+        <property name="host">sink</property>
+        <property name="synchronised">0</property>
+        <property name="template">${message.encodedData}</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>process web service response</name>
+            <script>try
+{
+  // process the response to the ComponentRoutingService invocation, storing data to the channelMap
+  var resp = new XML(responseMap.get(&apos;Call ComponentRoutingService&apos;).getMessage());
+
+  logger.info(&quot;Processing ComponentRoutingService web svc response&quot;);
+  logger.info(resp);
+
+  // If routingData is not present in response XML, a SOAP fault was likely returned from service call.  Record the 
+  // response to the componentErrors variable and don&apos;t attempt to process component configuration items.
+  if (undefined == resp..*::Body.*::getRoutingDataResponse.*::[&apos;routingData&apos;])
+  {
+    logger.error(&quot;No routingData element found in ComponentRoutingService response. Recording response to componentErrors variable: &quot; + resp);
+    //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;ComponentRoutingService:\n&quot; + resp + &quot; |\n&quot;);
+  }
+  else
+  {
+    var xml = new XML(resp..*::Body.*::getRoutingDataResponse.*::[&apos;routingData&apos;].toString());
+
+    logger.info(&quot;structural validation=&quot; + xml[&apos;structuralValidation&apos;]);
+    logger.info(&quot;structuralValidationRegexpFilters=&quot; + xml[&apos;structuralValidationRegexpFilters&apos;]);
+    logger.info(&quot;vocabTranslation=&quot; + xml[&apos;vocabTranslation&apos;]);
+    logger.info(&quot;codeValidation=&quot; + xml[&apos;codeValidation&apos;]);
+    logger.info(&quot;subscription=&quot; + xml[&apos;subscription&apos;]);
+    logger.info(&quot;anonymization=&quot; + xml[&apos;anonymization&apos;]);
+    logger.info(&quot;addSFTSegment=&quot; + xml[&apos;addSFTSegment&apos;]);
+    logger.info(&quot;addSPMSegment=&quot; + xml[&apos;addSPMSegment&apos;]);
+    logger.info(&quot;translateToVersion=&quot; + xml[&apos;translateToVersion&apos;]);
+    logger.info(&quot;vocabTranslationMSSProfile=&quot; + xml[&apos;vocabTranslationMSSProfile&apos;]);
+    logger.info(&quot;codeValidationMSSProfile=&quot; + xml[&apos;codeValidationMSSProfile&apos;]);
+    logger.info(&quot;customProfileName=&quot; + xml[&apos;customProfileName&apos;]);
+    logger.info(&quot;sendingFacilityDirectEmailAddress=&quot; + xml[&apos;sendingFacilityDirectEmailAddress&apos;]);
+    logger.info(&quot;sendingFacilityNotificationEmail=&quot; + xml[&apos;sendingFacilityNotificationEmail&apos;]);
+    logger.info(&quot;sendingFacilityErrorNotificationEmail=&quot; + xml[&apos;sendingFacilityErrorNotificationEmail&apos;]);
+    logger.info(&quot;sendingFacilityWebSvcHost=&quot; + xml[&apos;sendingFacilityWebSvcHost&apos;]);
+    logger.info(&quot;sendingFacilityXportType=&quot; + xml[&apos;sendingFacilityXportType&apos;]);
+    logger.info(&quot;sendingFacilityHubHost=&quot; + xml[&apos;sendingFacilityHubHost&apos;]);
+    logger.info(&quot;receivingFacilityDirectEmailAddress=&quot; + xml[&apos;receivingFacilityDirectEmailAddress&apos;]);
+    logger.info(&quot;receivingFacilityWebSvcHost=&quot; + xml[&apos;receivingFacilityWebSvcHost&apos;]);
+    logger.info(&quot;receivingFacilityXportType=&quot; + xml[&apos;receivingFacilityXportType&apos;]);
+    logger.info(&quot;receivingFacilityHubHost=&quot; + xml[&apos;receivingFacilityHubHost&apos;]);
+
+    channelMap.put(&apos;structuralValidation&apos;, xml[&apos;structuralValidation&apos;]);
+    channelMap.put(&apos;structuralValidationRegexpFilters&apos;, xml[&apos;structuralValidationRegexpFilters&apos;]);
+    channelMap.put(&apos;vocabTranslation&apos;, xml[&apos;vocabTranslation&apos;]);
+    channelMap.put(&apos;codeValidation&apos;, xml[&apos;codeValidation&apos;]);
+    channelMap.put(&apos;subscription&apos;, xml[&apos;subscription&apos;]);
+    channelMap.put(&apos;anonymization&apos;, xml[&apos;anonymization&apos;]);
+    channelMap.put(&apos;addSFTSegment&apos;, xml[&apos;addSFTSegment&apos;]);
+    channelMap.put(&apos;addSPMSegment&apos;, xml[&apos;addSPMSegment&apos;]);
+    channelMap.put(&apos;translateToVersion&apos;, xml[&apos;translateToVersion&apos;]);
+    channelMap.put(&apos;vocabTranslationMSSProfile&apos;, xml[&apos;vocabTranslationMSSProfile&apos;]);
+    channelMap.put(&apos;codeValidationMSSProfile&apos;, xml[&apos;codeValidationMSSProfile&apos;]);
+    channelMap.put(&apos;customProfileName&apos;, xml[&apos;customProfileName&apos;]);
+    channelMap.put(&apos;sendingFacilityDirectEmailAddress&apos;, xml[&apos;sendingFacilityDirectEmailAddress&apos;]);
+    channelMap.put(&apos;sendingFacilityNotificationEmail&apos;, xml[&apos;sendingFacilityNotificationEmail&apos;]);
+
+    if (&quot;&quot; == xml[&apos;sendingFacilityErrorNotificationEmail&apos;] )
+    {
+      channelMap.put(&apos;sendingFacilityErrorNotificationEmail&apos;, &apos;NONE&apos;);
+    }
+    else
+    {
+      channelMap.put(&apos;sendingFacilityErrorNotificationEmail&apos;, xml[&apos;sendingFacilityErrorNotificationEmail&apos;]);
+    }
+    
+    channelMap.put(&apos;sendingFacilityWebSvcHost&apos;, xml[&apos;sendingFacilityWebSvcHost&apos;]);
+    channelMap.put(&apos;sendingFacilityXportType&apos;, xml[&apos;sendingFacilityXportType&apos;]);
+    channelMap.put(&apos;sendingFacilityHubHost&apos;, xml[&apos;sendingFacilityHubHost&apos;]);
+    channelMap.put(&apos;receivingFacilityDirectEmailAddress&apos;, xml[&apos;receivingFacilityDirectEmailAddress&apos;]);
+    channelMap.put(&apos;receivingFacilityWebSvcHost&apos;, xml[&apos;receivingFacilityWebSvcHost&apos;]);
+    channelMap.put(&apos;receivingFacilityXportType&apos;, xml[&apos;receivingFacilityXportType&apos;]);
+    channelMap.put(&apos;receivingFacilityHubHost&apos;, xml[&apos;receivingFacilityHubHost&apos;]);
+  }
+}
+catch(e)
+{
+  logger.error(&quot;Error in Process ComponentRoutingService Response Transformer: &quot; + e.message);
+  //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;Process ComponentRoutingService Response Transformer:\n&quot; + e.message + &quot; |\n&quot;);
+}</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>try
+{
+  // process the response to the ComponentRoutingService invocation, storing data to the channelMap
+  var resp = new XML(responseMap.get(&apos;Call ComponentRoutingService&apos;).getMessage());
+
+  logger.info(&quot;Processing ComponentRoutingService web svc response&quot;);
+  logger.info(resp);
+
+  // If routingData is not present in response XML, a SOAP fault was likely returned from service call.  Record the 
+  // response to the componentErrors variable and don&apos;t attempt to process component configuration items.
+  if (undefined == resp..*::Body.*::getRoutingDataResponse.*::[&apos;routingData&apos;])
+  {
+    logger.error(&quot;No routingData element found in ComponentRoutingService response. Recording response to componentErrors variable: &quot; + resp);
+    //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;ComponentRoutingService:\n&quot; + resp + &quot; |\n&quot;);
+  }
+  else
+  {
+    var xml = new XML(resp..*::Body.*::getRoutingDataResponse.*::[&apos;routingData&apos;].toString());
+
+    logger.info(&quot;structural validation=&quot; + xml[&apos;structuralValidation&apos;]);
+    logger.info(&quot;structuralValidationRegexpFilters=&quot; + xml[&apos;structuralValidationRegexpFilters&apos;]);
+    logger.info(&quot;vocabTranslation=&quot; + xml[&apos;vocabTranslation&apos;]);
+    logger.info(&quot;codeValidation=&quot; + xml[&apos;codeValidation&apos;]);
+    logger.info(&quot;subscription=&quot; + xml[&apos;subscription&apos;]);
+    logger.info(&quot;anonymization=&quot; + xml[&apos;anonymization&apos;]);
+    logger.info(&quot;addSFTSegment=&quot; + xml[&apos;addSFTSegment&apos;]);
+    logger.info(&quot;addSPMSegment=&quot; + xml[&apos;addSPMSegment&apos;]);
+    logger.info(&quot;translateToVersion=&quot; + xml[&apos;translateToVersion&apos;]);
+    logger.info(&quot;vocabTranslationMSSProfile=&quot; + xml[&apos;vocabTranslationMSSProfile&apos;]);
+    logger.info(&quot;codeValidationMSSProfile=&quot; + xml[&apos;codeValidationMSSProfile&apos;]);
+    logger.info(&quot;customProfileName=&quot; + xml[&apos;customProfileName&apos;]);
+    logger.info(&quot;sendingFacilityDirectEmailAddress=&quot; + xml[&apos;sendingFacilityDirectEmailAddress&apos;]);
+    logger.info(&quot;sendingFacilityNotificationEmail=&quot; + xml[&apos;sendingFacilityNotificationEmail&apos;]);
+    logger.info(&quot;sendingFacilityErrorNotificationEmail=&quot; + xml[&apos;sendingFacilityErrorNotificationEmail&apos;]);
+    logger.info(&quot;sendingFacilityWebSvcHost=&quot; + xml[&apos;sendingFacilityWebSvcHost&apos;]);
+    logger.info(&quot;sendingFacilityXportType=&quot; + xml[&apos;sendingFacilityXportType&apos;]);
+    logger.info(&quot;sendingFacilityHubHost=&quot; + xml[&apos;sendingFacilityHubHost&apos;]);
+    logger.info(&quot;receivingFacilityDirectEmailAddress=&quot; + xml[&apos;receivingFacilityDirectEmailAddress&apos;]);
+    logger.info(&quot;receivingFacilityWebSvcHost=&quot; + xml[&apos;receivingFacilityWebSvcHost&apos;]);
+    logger.info(&quot;receivingFacilityXportType=&quot; + xml[&apos;receivingFacilityXportType&apos;]);
+    logger.info(&quot;receivingFacilityHubHost=&quot; + xml[&apos;receivingFacilityHubHost&apos;]);
+
+    channelMap.put(&apos;structuralValidation&apos;, xml[&apos;structuralValidation&apos;]);
+    channelMap.put(&apos;structuralValidationRegexpFilters&apos;, xml[&apos;structuralValidationRegexpFilters&apos;]);
+    channelMap.put(&apos;vocabTranslation&apos;, xml[&apos;vocabTranslation&apos;]);
+    channelMap.put(&apos;codeValidation&apos;, xml[&apos;codeValidation&apos;]);
+    channelMap.put(&apos;subscription&apos;, xml[&apos;subscription&apos;]);
+    channelMap.put(&apos;anonymization&apos;, xml[&apos;anonymization&apos;]);
+    channelMap.put(&apos;addSFTSegment&apos;, xml[&apos;addSFTSegment&apos;]);
+    channelMap.put(&apos;addSPMSegment&apos;, xml[&apos;addSPMSegment&apos;]);
+    channelMap.put(&apos;translateToVersion&apos;, xml[&apos;translateToVersion&apos;]);
+    channelMap.put(&apos;vocabTranslationMSSProfile&apos;, xml[&apos;vocabTranslationMSSProfile&apos;]);
+    channelMap.put(&apos;codeValidationMSSProfile&apos;, xml[&apos;codeValidationMSSProfile&apos;]);
+    channelMap.put(&apos;customProfileName&apos;, xml[&apos;customProfileName&apos;]);
+    channelMap.put(&apos;sendingFacilityDirectEmailAddress&apos;, xml[&apos;sendingFacilityDirectEmailAddress&apos;]);
+    channelMap.put(&apos;sendingFacilityNotificationEmail&apos;, xml[&apos;sendingFacilityNotificationEmail&apos;]);
+
+    if (&quot;&quot; == xml[&apos;sendingFacilityErrorNotificationEmail&apos;] )
+    {
+      channelMap.put(&apos;sendingFacilityErrorNotificationEmail&apos;, &apos;NONE&apos;);
+    }
+    else
+    {
+      channelMap.put(&apos;sendingFacilityErrorNotificationEmail&apos;, xml[&apos;sendingFacilityErrorNotificationEmail&apos;]);
+    }
+    
+    channelMap.put(&apos;sendingFacilityWebSvcHost&apos;, xml[&apos;sendingFacilityWebSvcHost&apos;]);
+    channelMap.put(&apos;sendingFacilityXportType&apos;, xml[&apos;sendingFacilityXportType&apos;]);
+    channelMap.put(&apos;sendingFacilityHubHost&apos;, xml[&apos;sendingFacilityHubHost&apos;]);
+    channelMap.put(&apos;receivingFacilityDirectEmailAddress&apos;, xml[&apos;receivingFacilityDirectEmailAddress&apos;]);
+    channelMap.put(&apos;receivingFacilityWebSvcHost&apos;, xml[&apos;receivingFacilityWebSvcHost&apos;]);
+    channelMap.put(&apos;receivingFacilityXportType&apos;, xml[&apos;receivingFacilityXportType&apos;]);
+    channelMap.put(&apos;receivingFacilityHubHost&apos;, xml[&apos;receivingFacilityHubHost&apos;]);
+  }
+}
+catch(e)
+{
+  logger.error(&quot;Error in Process ComponentRoutingService Response Transformer: &quot; + e.message);
+  //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;Process ComponentRoutingService Response Transformer:\n&quot; + e.message + &quot; |\n&quot;);
+}</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>XML</inboundProtocol>
+        <outboundProtocol>XML</outboundProtocol>
+        <inboundProperties>
+          <property name="stripNamespaces">true</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="stripNamespaces">true</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Channel Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.1.5490</version>
+    </connector>
+    <connector>
+      <name>Call NNDService</name>
+      <properties>
+        <property name="DataType">Web Service Sender</property>
+        <property name="dispatcherAttachmentContents">&lt;list/&gt;</property>
+        <property name="dispatcherAttachmentNames">&lt;list/&gt;</property>
+        <property name="dispatcherAttachmentTypes">&lt;list/&gt;</property>
+        <property name="dispatcherEnvelope">&lt;soapenv:Envelope  
+  xmlns:q0=&quot;http://phix.cdc.gov/&quot;  
+  xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;  
+  xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;  
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;  
+  &lt;soapenv:Header /&gt;  
+  &lt;soapenv:Body&gt;  
+    &lt;q0:detectNotifiableDisease&gt;
+      &lt;arg1&gt;ONE FISH&lt;/arg1&gt;
+      &lt;arg2&gt;TWO FISH&lt;/arg2&gt;
+    &lt;/q0:detectNotifiableDisease&gt;
+  &lt;/soapenv:Body&gt;  
+&lt;/soapenv:Envelope&gt;  
+</property>
+        <property name="dispatcherOneWay">0</property>
+        <property name="dispatcherOperation">detectNotifiableDisease</property>
+        <property name="dispatcherPassword"></property>
+        <property name="dispatcherPort">{http://phix.cdc.gov/}NNDServicePort</property>
+        <property name="dispatcherReplyChannelId">sink</property>
+        <property name="dispatcherService">{http://phix.cdc.gov/}NNDService</property>
+        <property name="dispatcherSoapAction"></property>
+        <property name="dispatcherUseAuthentication">0</property>
+        <property name="dispatcherUseMtom">0</property>
+        <property name="dispatcherUsername"></property>
+        <property name="dispatcherWsdlCacheId"></property>
+        <property name="dispatcherWsdlOperations">&lt;list&gt;
+  &lt;string&gt;detectNotifiableDisease&lt;/string&gt;
+&lt;/list&gt;</property>
+        <property name="dispatcherWsdlUrl">http://localhost:9090/NNDService/NNDService?wsdl</property>
+        <property name="host">localhost:9090/NNDService/NNDService?wsdl</property>
+        <property name="queuePollInterval">200</property>
+        <property name="reconnectMillisecs">10000</property>
+        <property name="rotateQueue">0</property>
+        <property name="usePersistentQueues">0</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>transformer</name>
+            <script>try
+{
+  logger.info(&quot;Calling NNDService&quot;);
+
+}&#xd;catch(e)
+{
+  logger.error(&quot;Error in Call NNDService Transformer: &quot; + e.message);
+}</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>try
+{
+  logger.info(&quot;Calling NNDService&quot;);
+
+}&#xd;catch(e)
+{
+  logger.error(&quot;Error in Call NNDService Transformer: &quot; + e.message);
+}</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>XML</inboundProtocol>
+        <outboundProtocol>XML</outboundProtocol>
+        <inboundProperties>
+          <property name="stripNamespaces">true</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="stripNamespaces">true</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Web Service Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.1.5490</version>
+    </connector>
+    <connector>
+      <name>Process NNDService Response</name>
+      <properties>
+        <property name="DataType">Channel Writer</property>
+        <property name="host">sink</property>
+        <property name="synchronised">0</property>
+        <property name="template">${message.encodedData}</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>Process NNDService Response</name>
+            <script>try
+{
+  // process the response to the NNDService invocation, storing data to the channelMap
+  var resp = new XML(responseMap.get(&apos;Process NNDService Response&apos;).getMessage());
+
+  logger.info(&quot;Processing NNDService response&quot;);
+  logger.info(resp);
+
+  if (undefined == resp..*::Body.*::detectNotifiableDiseaseResponse.*::[&apos;nndResult&apos;])
+  {
+    logger.error(&quot;No nndResult element found in NNDService response.&quot;);
+    //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;ComponentRoutingService:\n&quot; + resp + &quot; |\n&quot;);
+  }
+  else
+  {
+    var xml = new XML(resp..*::Body.*::getRoutingDataResponse.*::[&apos;nndResult&apos;].toString());
+/*
+    logger.info(&quot;structural validation=&quot; + xml[&apos;structuralValidation&apos;]);
+*/
+  }
+}
+catch(e)
+{
+  logger.error(&quot;Error in Process NNDService Response Transformer: &quot; + e.message);
+  //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;Process ComponentRoutingService Response Transformer:\n&quot; + e.message + &quot; |\n&quot;);
+}</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>try
+{
+  // process the response to the NNDService invocation, storing data to the channelMap
+  var resp = new XML(responseMap.get(&apos;Process NNDService Response&apos;).getMessage());
+
+  logger.info(&quot;Processing NNDService response&quot;);
+  logger.info(resp);
+
+  if (undefined == resp..*::Body.*::detectNotifiableDiseaseResponse.*::[&apos;nndResult&apos;])
+  {
+    logger.error(&quot;No nndResult element found in NNDService response.&quot;);
+    //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;ComponentRoutingService:\n&quot; + resp + &quot; |\n&quot;);
+  }
+  else
+  {
+    var xml = new XML(resp..*::Body.*::getRoutingDataResponse.*::[&apos;nndResult&apos;].toString());
+/*
+    logger.info(&quot;structural validation=&quot; + xml[&apos;structuralValidation&apos;]);
+*/
+  }
+}
+catch(e)
+{
+  logger.error(&quot;Error in Process NNDService Response Transformer: &quot; + e.message);
+  //channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;Process ComponentRoutingService Response Transformer:\n&quot; + e.message + &quot; |\n&quot;);
+}</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>XML</inboundProtocol>
+        <outboundProtocol>XML</outboundProtocol>
+        <inboundProperties>
+          <property name="stripNamespaces">true</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="stripNamespaces">true</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Channel Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.1.5490</version>
+    </connector>
+    <connector>
+      <name>XDR_SENDER_DESTINATION</name>
+      <properties>
+        <property name="DataType">File Writer</property>
+        <property name="FTPAnonymous">1</property>
+        <property name="binary">0</property>
+        <property name="charsetEncoding">DEFAULT_ENCODING</property>
+        <property name="host">C:/himss/UC3/OUTBOUND_XDR</property>
+        <property name="outputAppend">1</property>
+        <property name="outputPattern">${ORIGINALNAME}</property>
+        <property name="passive">1</property>
+        <property name="password">anonymous</property>
+        <property name="scheme">file</property>
+        <property name="secure">1</property>
+        <property name="template">${message.transformedData}</property>
+        <property name="timeout">10000</property>
+        <property name="username">anonymous</property>
+        <property name="validateConnections">1</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>New Step</name>
+            <script>logger.info(&quot;Sending CDA document via XDR to&quot; + $(&apos;msgReceivingFacilityID&apos;));</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>logger.info(&quot;Sending CDA document via XDR to&quot; + $(&apos;msgReceivingFacilityID&apos;));</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>XML</inboundProtocol>
+        <outboundProtocol>XML</outboundProtocol>
+        <inboundProperties>
+          <property name="stripNamespaces">true</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="stripNamespaces">true</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules>
+          <rule>
+            <sequenceNumber>0</sequenceNumber>
+            <name>XDR check</name>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>return $(&apos;receivingFacilityXportType&apos;) == &apos;XDR&apos;;</string>
+              </entry>
+            </data>
+            <type>JavaScript</type>
+            <script>return $(&apos;receivingFacilityXportType&apos;) == &apos;XDR&apos;;</script>
+            <operator>NONE</operator>
+          </rule>
+        </rules>
+      </filter>
+      <transportName>File Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.1.5490</version>
+    </connector>
+  </destinationConnectors>
+  <properties>
+    <property name="clearGlobalChannelMap">true</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="encryptData">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="initialState">started</property>
+    <property name="max_message_age">-1</property>
+    <property name="store_messages">true</property>
+    <property name="synchronous">true</property>
+    <property name="transactional">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</shutdownScript>
+</channel>

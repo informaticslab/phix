@@ -1,0 +1,9 @@
+MSH|^~\&||MediLabCo-Seattle^45D0470381^CLIA|WADOH|WA|199605171830||ORU^R01|199605170123|P|2.3.1
+PID|||10543^^^^^CVMH&01D0355944&CLIA|95101100001^^^^^MediLabCo- Seattle&45D0470381&CLIA|Doe^John^Q^Jr|Clemmons||M||W|2166 Wells Dr^AptB^Seattle^WA^98109^USA^^^King||^PRN^PH^^^206^6793240|||M|||423523049|DOEJ34556057^WA^19970801||N 
+NK1|1|Doe^Jane^Lee^^^^L|SPO^spouse^HL70063|2166 Wells Dr^Apt B^Seattle^WA^98109^USA^M^^King^^A|^PRN^PH^^^206^6793240
+ORC|||||||||||||||||||||MediLabCo - Northwest Pathology Ltd., Central Campus^^450470381^^^CLIA|2217 Rainier Way^^Renton^WA^98002^USA^M^^Black Hawk^^A|^WPN^PH^helpline@medilab.com^^206^5549097|115 Pike Plaza^Suite 100^Seattle^WA^98122^USA^^^^^A
+OBR|1||SER122145^POC^2.16.840.1.114222.4.3.2.5.2.300^ISO|^^^78334^Hepatitis Panel, Measurement^L|||19960321083000||||||||BLDV|^Welby^M^J^Jr^Dr^MD|^WPN^PH^^^206^4884144|||||19960321083000|||F
+OBX|1|CE|5182-1^Hepatitis A Virus, Serum Antibody EIA^LN||G-A200^Positive^SNM||||||F|||199603241500|45D0480381^MediLabCo-Seattle^CLIA
+OBR|2||SER122145^POC^2.16.840.1.114222.4.3.2.5.2.300^ISO|^Additional patient demographics|||19960321083000|||||||||||||||19960321083000|||F
+OBX|1|NM|21612-7^reported patient age^LN||47|yr^year^ANSI+|||||F
+OBX|2|TX|11294-6^Current employment^LN||food handler||||||F

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="gov.cdc.biosense.dpit.beans.AssigningAuthority" table="tblAssigningAuthority">
+	<cache usage="read-only" />
+        <id name="linkerAssigningAuthority" column="LinkerAssigningAuthority">
+        </id>
+        <property name="dsAssigningAuthority" column="DSAssigningAuthority" />
+        <property name="facilityCode" column="FacilityCode" />
+        <property name="identifierType" column="IdentifierType" />
+        <property name="version" column="version" />
+    </class>
+    
+    <class name="gov.cdc.biosense.dpit.beans.PatientId" table="tblPatientID">
+	<cache usage="read-write"/>
+        	<composite-id>
+			<key-property name="dsPatientId" column="DsPatientID"/>
+			<key-property name="linkerAssigningAuthority" column="LinkerAssigningAuthority"/>
+		</composite-id>
+        <property name="bioSensePatientId" column="BioSensePatientID" />
+        <property name="mergeType" column="MergeType" />
+        <property name="version" column="version" />
+    </class>
+    
+    <class name="gov.cdc.biosense.dpit.beans.PatientIdMergeHistory" table="tblPatientIdMergeHistory">
+	<cache usage="read-write"/>
+	    	<composite-id>
+    			<key-property name="dsPatientId" column="DsPatientId" />
+			<key-property name="bioSensePatientId" column="BioSensePatientId" />
+		</composite-id>	
+        <property name="firstName" column="FirstName"/>
+        <property name="lastName" column="LastName"/>
+        <property name="middleName" column="MiddleName"/>
+        <property name="linkerAssigningAuthority" column="LinkerAssigningAuthority" />
+        <property name="mergeType" column="MergeType" />
+        <property name="sdsPatientId" column="sDSPatientID" />
+        <property name="sbioSensePatientId" column="sBioSensePatientId" />
+        <property name="version" column="version" />
+    </class>
+    
+    <class name="gov.cdc.biosense.dpit.beans.FacilityUsers" table="tblFacilityUsers">
+	<cache usage="read-write"/>
+	    	<composite-id>
+    			<key-property name="userId" column="UserId" />
+				<key-property name="facilityId" column="FacilityId" />
+			</composite-id>	
+    </class>
+
+    <class name="gov.cdc.biosense.dpit.beans.PatientName" table="tblPatientName">
+	<cache usage="read-write"/>
+        <id name="bioSensePatientId" column="BioSensePatientID">
+            <generator class="increment"/>
+        </id>
+        <property name="lastName" column="LastName"/>
+        <property name="firstName" column="FirstName"/>
+        <property name="middleName" column="MiddleName"/>
+        <property name="version" column="version" />
+    </class>
+    
+    <class name="gov.cdc.biosense.dpit.beans.VisitId" table="tblVisitID">
+	<cache usage="read-write"/>
+    		<id name="bioSenseVisitId" column="BioSenseVisitID">
+            <generator class="increment"/>
+        </id>
+        <property name="bioSensePatientId" column="bioSensePatientID"/>
+        <property name="version" column="version" />
+    </class>
+    
+    <class name="gov.cdc.biosense.dpit.beans.VisitIdMergeHistory" table="tblVisitIDMergeHistory">
+	<cache usage="read-write"/>
+    		<composite-id>
+    			<key-property name="bioSenseVisitId" column="BioSenseVisitId"/>
+			<key-property name="bioSensePatientId" column="bioSensePatientId"/>
+		</composite-id>
+        <property name="mergeType" column="MergeType"/>
+        <property name="sbioSensePatientId" column="sBioSensePatientId"/>
+        <property name="version" column="version" />
+    </class>
+
+    <class name="gov.cdc.biosense.dpit.beans.VisitIdRef" table="tblVisitIdRef">
+	<cache usage="read-write"/>
+		<composite-id>
+			<key-property name="dsVisitId" column="DsVisitID"/>
+			<key-property name="dsPatientId" column="DsPatientID"/>
+			<key-property name="linkerAssigningAuthority" column="LinkerAssigningAuthority"/>
+		</composite-id>
+        <property name="bioSenseVisitId" column="BioSenseVisitID"/>
+        <property name="mergeType" column="MergeType" />
+        <property name="version" column="version" />
+    </class>
+    
+ </hibernate-mapping>

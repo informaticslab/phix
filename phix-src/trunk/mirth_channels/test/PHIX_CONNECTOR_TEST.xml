@@ -1,0 +1,232 @@
+<!--
+   Copyright 2011  U.S. Centers for Disease Control and Prevention
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   $Id$
+  -->
+<com.mirth.connect.model.Channel>
+  <id>2ca665b8-8925-459c-b50c-df0c9b3ba5cc</id>
+  <name>PHIX_CONNECTOR_TEST</name>
+  <description></description>
+  <enabled>false</enabled>
+  <version>2.0.1.5164</version>
+  <lastModified>
+    <time>1318528399238</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>12</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="binary">0</property>
+      <property name="fileFilter">*</property>
+      <property name="password">anonymous</property>
+      <property name="regex">0</property>
+      <property name="username">anonymous</property>
+      <property name="moveToDirectory">C:/mirthdata/phixtest_processed</property>
+      <property name="moveToErrorDirectory">C:/mirthdata/phixtest_error</property>
+      <property name="timeout">10000</property>
+      <property name="pollingType">interval</property>
+      <property name="charsetEncoding">DEFAULT_ENCODING</property>
+      <property name="scheme">file</property>
+      <property name="host">C:/mirthdata/phixtest_in</property>
+      <property name="secure">1</property>
+      <property name="pollingFrequency">1000</property>
+      <property name="validateConnections">1</property>
+      <property name="DataType">File Reader</property>
+      <property name="processBatchFiles">0</property>
+      <property name="checkFileAge">1</property>
+      <property name="passive">1</property>
+      <property name="fileAge">1000</property>
+      <property name="sortAttribute">date</property>
+      <property name="FTPAnonymous">1</property>
+      <property name="moveToPattern">${ORIGINALNAME}</property>
+      <property name="autoDelete">0</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundProtocol>HL7V2</inboundProtocol>
+      <outboundProtocol>HL7V2</outboundProtocol>
+      <inboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictValidation">false</property>
+        <property name="useStrictParser">false</property>
+        <property name="handleSubcomponents">false</property>
+      </inboundProperties>
+      <outboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictValidation">false</property>
+        <property name="useStrictParser">false</property>
+        <property name="handleSubcomponents">false</property>
+      </outboundProperties>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>File Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <version>2.0.1.5164</version>
+  </sourceConnector>
+  <destinationConnectors>
+    <com.mirth.connect.model.Connector>
+      <name>call PHIX Connector Service</name>
+      <properties>
+        <property name="dispatcherWsdlOperations">&lt;list&gt;
+  &lt;string&gt;postMessage&lt;/string&gt;
+  &lt;string&gt;postResult&lt;/string&gt;
+&lt;/list&gt;</property>
+        <property name="queuePollInterval">200</property>
+        <property name="dispatcherAttachmentContents">&lt;list/&gt;</property>
+        <property name="dispatcherReplyChannelId">sink</property>
+        <property name="rotateQueue">0</property>
+        <property name="dispatcherAttachmentTypes">&lt;list/&gt;</property>
+        <property name="dispatcherOperation">postMessage</property>
+        <property name="dispatcherAttachmentNames">&lt;list/&gt;</property>
+        <property name="dispatcherService">{http://phix.cdc.gov/}PHIXConnectorService</property>
+        <property name="dispatcherUseMtom">0</property>
+        <property name="dispatcherUseAuthentication">0</property>
+        <property name="dispatcherPort">{http://phix.cdc.gov/}PHIXConnectorServicePort</property>
+        <property name="dispatcherSoapAction"></property>
+        <property name="host">dejongp.us.saic.com:9090/PHIXConnectorService/PHIXConnectorService?wsdl</property>
+        <property name="dispatcherWsdlCacheId">http://localhost:9090/PHIXConnectorService/PHIXConnectorService?wsdl</property>
+        <property name="dispatcherWsdlUrl">http://dejongp.us.saic.com:9090/PHIXConnectorService/PHIXConnectorService?wsdl</property>
+        <property name="DataType">Web Service Sender</property>
+        <property name="dispatcherPassword"></property>
+        <property name="usePersistentQueues">0</property>
+        <property name="reconnectMillisecs">10000</property>
+        <property name="dispatcherOneWay">0</property>
+        <property name="dispatcherEnvelope">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+  &lt;soap:Body&gt;
+    &lt;postMessage xmlns=&quot;http://phix.cdc.gov/&quot;&gt;
+      &lt;hl7Message xmlns=&quot;&quot;&gt;&lt;![CDATA[${message.encodedData}]]&gt;&lt;/hl7Message&gt;
+    &lt;/postMessage&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</property>
+        <property name="dispatcherUsername"></property>
+      </properties>
+      <transformer>
+        <steps/>
+        <inboundProtocol>HL7V2</inboundProtocol>
+        <outboundProtocol>HL7V2</outboundProtocol>
+        <inboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Web Service Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.0.1.5164</version>
+    </com.mirth.connect.model.Connector>
+    <com.mirth.connect.model.Connector>
+      <name>process PHIX Connector Service response</name>
+      <properties>
+        <property name="synchronised">0</property>
+        <property name="DataType">Channel Writer</property>
+        <property name="template">${message.encodedData}</property>
+        <property name="host">sink</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>New Step</name>
+            <script>var resp = new XML(responseMap.get(&apos;call PHIX Connector Service&apos;).getMessage());
+
+logger.info(&quot;Processing PHIX Connector Service web svc response&quot;);
+logger.info(resp);</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>var resp = new XML(responseMap.get(&apos;call PHIX Connector Service&apos;).getMessage());
+
+logger.info(&quot;Processing PHIX Connector Service web svc response&quot;);
+logger.info(resp);</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>HL7V2</inboundProtocol>
+        <outboundProtocol>HL7V2</outboundProtocol>
+        <inboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Channel Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.0.1.5164</version>
+    </com.mirth.connect.model.Connector>
+  </destinationConnectors>
+  <properties>
+    <property name="synchronous">true</property>
+    <property name="clearGlobalChannelMap">true</property>
+    <property name="transactional">false</property>
+    <property name="initialState">started</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="max_message_age">-1</property>
+    <property name="store_messages">true</property>
+    <property name="encryptData">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</shutdownScript>
+</com.mirth.connect.model.Channel>

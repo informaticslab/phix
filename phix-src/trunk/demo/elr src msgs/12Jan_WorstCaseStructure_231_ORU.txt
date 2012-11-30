@@ -1,0 +1,38 @@
+MSH|^~\&|ELR^2.16.840.1.114222.4.3.2.5.2.10^ISO|G^13D34567^CLIA|DOH_APPL^2.16.840.1.114222.4.3.2.5.2.50^ISO|G^2.16.840.1.114222.4.3.2.5.2.7000^ISO|20111219132554|security|ORU^R01^ORU_R01|20111208132400|D|2.3.1|123456|CONTINUATION|NE|NE|US|ID|eng^English^ISO^E^English^L|2.3
+PID|1|10031^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^AN|31^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^MR|20031^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^VN|LASTNAME^FIRSTNAME^MI^Suffix^Prefix^Degree^L^A|Maiden^Mother^MI^Suffix^Prefix^Degree^L^A|19560808|F|Alias^Other^AKA^Suffix^Prefix^Degree^A^P|W^^HL70005|890 South Street^Apt 2121^Cleveland^OH^65982-0023^^1^X^1^1^A~222 2nd Instance address^Street address line 2^Cleveland^OH^65982||^^^^^707^1234567|^^^^^704^7654321^3489||M^Married^L|ANA^Anabaptist^L|10031^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^AN|999-99-9999|7709403^GA^20120809|22231^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^MO|N^Non-Hispanic^HL70189|Miami Midway Medical Center|Y|4|US^United States^ISO|A^Active^L|ARB^Aruba^ISO|20111201|N
+PD1|S|F|organization namestring^L^^^^ELR&2.16.840.1.114222.4.3.2.5.2.10&ISO^FI^Lab1&13D34567&CLIA|ID1289379^ProviderFamilyName^ProviderGiven^Init^Suffix^Prefix^Degree^SOURCE^AssignAuth&13D34567&CLIA^L^7^MOD10^NPI^AssignFac&13D34567&CLIA^A|F|Y|N|Y|N|10565^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^AN|Y
+NK1|1|NOKNLast^William^^text^^1^A|FA^Father^HL70063^DAD^father^L|890 Smith Street^^Corolla^NY^20879^A^A^^1^^A~35 main Street^X^Corolla^CA^20899^1^1^^A^^1~75670 Green Way^text^Corolla^VT^10028^1^1^^1^^A|^PRN^PH^^^123^19904224^6666^call after 9am~^ORN^CP^^^949^15903300^949498432^text~^NET^X.400^JoeAnyman@gmail.com|^WRN^PH^^^232^39904224^6666^call after 9am|||||||||||||||||||||||||||||||||||||||||
+NK1|2|NOKLast^Mary Ann^S^suffix^prefix^A^1|MO^Mother^HL70063^MA^mother^L|9200 Valley Pike^abc^Columbus^CA^20854~75670 Green Way^text^Olney^VA^20879^A^1^^1|^^^^^949^4984321~^^^^^949^6442356|^^^^^949^4984321~^^^^^949^6442356||||||||||||||||||||||||||||||||||||||||
+PV1|1|O|9PICU|O|10031^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^AN|12West|ID453453459^AttendingName^ProviderGiven^|ID1289379^ReferringName^Doctor^I^PhD^Dr.^MD^SRC^AALab1&13D34567&CLIA^L^1^MOD11^NPI^AF_Lab1&13D34567&CLIA^A|M73244^Consulting^Katy^^Dr|GI|ER|Y|N|9|B5|N|ID1289379^Admitting^Doctor^I|E|10000312^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^VN|01|Y|A|B|B|2011~2011|10000|12|N|N|20101231|C|70000|3500|Y|20101231|07|SNF|K^Kosher^L|SNF||A|SNF|1^1^1^G^A^^A^1^abc|20110517150012|20110527150012|100000|90000|3000|12|N
+PV2||M^Married^L|^MVA^||||||||||||||||||||MediHosp-Northwest Campus^^45070383^^^CLIA&text&ISO|||20110606|||20100101||||||||
+ORC|||||||||||||||||||||MediLabCo-NW Pathology Ltd., Central Campus^^4504704783^^^CLIA&text&ISO|2217 Ranier Way^^Renton^WA^98002^USA|^^^^^770^949498432^11754321|||||||||||||||||||||||||
+OBR|1|23457^ELR^2.16.840.1.114222.4.3.2.5.2.200^ISO|9700124^LAB1^2.16.840.1.114222.4.3.2.5.2.300^ISO|625-4^^LN^STOOL^STOOL CULTURE^L|||201102061830|||||||20110208132554|625-4&Stool Culture&LN^^^Stl&Stool&LN|999940^SMITH^MARY^A^^^MD||||||20110208132554|||F|||||||||||||||||||||||
+NTE|1|O|long order text
+NTE|2|P|long default order text
+OBX|1|CE|625-4^Bacteria identified in Stool by Culture^LN^STOOL^STOOL CULTURE^L|1|27268008^Genus Shigella^SNOMED^SAHIG^Shigella Species^L~27268008^Genus  e.coli^SNOMED^ECOLI^E Coli^L~27268008^Genus Salmonella (organism)^SNOMED^SALSP^Salmonella Species^L|mm/dL^^L|refRangeShouldBeBlankForCoded|I^A^HH|1|A|F|20011011|UserDefinedAccess||13D34567^CLIA Lab^CLIA|
+NTE|1|O|long result text
+NTE|2|P|long result/observation text
+OBX|2|SN|6603-5^FLUV Throat Cult^LN||^1^:^10000||||||F|||201105111230|Lab1^4D3489AD1^CLIA||METH~METH~STAIN
+NTE|1||long result/observation text that has to do with OBX just before this segment
+OBX|3|SN|6777-7^Glucose^LN^GLU^Glucose^L||^99|mg/dL^MilliGramsPerMilliLiter [Mass Concentration Units]^UCUM|||||F|||201105080630|Lab1^L^CLIA
+NTE|1|O|long result text
+NTE|2|P|long result/observation text
+OBX|4|CE|625-4^Bacteria identified^LN^RESP^Respiratory culture^L|1|27268008^Genus Shigella^SNOMED^SAHIG^Shigella Species^L~27268008^Genus e.coli^SNOMED^ECOLI^E Coli^L~27268008^Genus Salmonella (organism)^SNOMED^SALSP^Salmonella Species^L||||||F|||||
+OBX|5|SN|6603-5^FLUV Throat Cult^LN||^1^:^10000||||||F|||201105111230|Lab1^4D3489AD1^CLIA|L|METH~METH~STAIN|
+NTE|1|O|long result text
+NTE|2|P|long result/observation text
+OBR|2|23457^ELR^2.16.840.1.114222.4.3.2.5.2.200^ISO|9700124^LAB1^2.16.840.1.114222.4.3.2.5.2.300^ISO|625-4^^LN^STOOL^STOOL CULTURE^L|||201102061830|||||||20110208132554|625-4&Stool Culture&LN^^^Stl&Stool&LN|999940^SMITH^MARY^A^^^MD||||||20110208132554|||F|||||||||||||||||||||||
+NTE|1|O|long order text
+NTE|2|P|long default order text
+OBX|1|CE|625-4^Bacteria identified in Stool by Culture^LN^STOOL^STOOL CULTURE^L|1|27268008^Genus Shigella^SNOMED^SAHIG^Shigella Species^L~27268008^Genus  e.coli^SNOMED^ECOLI^E Coli^L~27268008^Genus Salmonella (organism)^SNOMED^SALSP^Salmonella Species^L|mm/dL^^L|refRangeShouldBeBlankForCoded|I^A^HH|1|A|F|20011011|UserDefinedAccess||13D34567^CLIA Lab^CLIA|
+NTE|1|O|long result text
+NTE|2|P|long result/observation text
+OBX|2|SN|6603-5^FLUV Throat Cult^LN||^1^:^10000||||||F|||201105111230|Lab1^4D3489AD1^CLIA||METH~METH~STAIN
+NTE|1||long result/observation text that has to do with OBX just before this segment
+OBX|3|SN|6777-7^Glucose^LN^GLU^Glucose^L||^99|mg/dL^MilliGramsPerMilliLiter [Mass Concentration Units]^UCUM|||||F|||201105080630|Lab1^L^CLIA
+NTE|1|O|long result text
+NTE|2|P|long result/observation text
+OBX|4|CE|625-4^Bacteria identified^LN^RESP^Respiratory culture^L|1|27268008^Genus Shigella^SNOMED^SAHIG^Shigella Species^L~27268008^Genus e.coli^SNOMED^ECOLI^E Coli^L~27268008^Genus Salmonella (organism)^SNOMED^SALSP^Salmonella Species^L||||||F|||||
+OBX|5|SN|6603-5^FLUV Throat Cult^LN||^1^:^10000||||||F|||201105111230|Lab1^4D3489AD1^CLIA|L|METH~METH~STAIN|
+NTE|1|O|long result text
+NTE|2|P|long result/observation text

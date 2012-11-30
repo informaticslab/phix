@@ -1,0 +1,9 @@
+MSH|^~\&||G^13D34567^CLIA||G^2.16.840.1.114222.4.3.2.5.2.7000^ISO|20120119132554|security|ORU^R01|20120108132400|D|2.3.1|123456|||||||
+PID|1||31^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^MR||LASTNAME^FIRSTNAME^MI^Suffix^Prefix^DEGREE^L^A|Maiden^Mother^MI^Suffix^Prefix^DEGREE^L^A|19560808|F|Alias^Other^AKA^Suffix^Prefix^DEGREE^A^P|W|890 South Street^Apt 2121^Cleveland^OH^65982-0023||^^^^^707^1234567|^^^^^704^7654321||M||||||||||||||
+PD1|||organization name string^L^100000^^^ELR&2.16.840.1.114222.4.3.2.5.2.10&ISO|ID1289379^ProviderFamilyName^ProviderGiven^Init^Suffix^Prefix^Degree^^AssignAuth&13D34567&CLIA|||||||
+NK1|1|Macy^William
+PV1||O|||||ID453453459^AttendingName^Given^MI^Sfx^Prefix^Degree|ID1289379^ReferringName^Doctor^I^PhD^Dr.^MD^^AALab1&13D34567&CLIA^^^^^AF_Lab1&13D34567&CLIA|M73244^Consulting^Katy^^^^D.O.||||||||^Admitting^Doctor
+PV2|||||||||||||||||||||||MediHosp-Northwest Campus^^45070383^^^CLIA&text&ISO||||||||||||||
+ORC|||||||||||||||||||||MediLabCo^^4504704783^^^CLIA&text&ISO|2217 Ranier Way^^Renton^WA^98002^USA|^^^^^770^949498432^11754321|||||||||||||||||||||||||
+OBR|1|23457^ELR^2.16.840.1.114222.4.3.2.5.2.200^ISO|9700124^LAB1^2.16.840.1.114222.4.3.2.5.2.300^ISO|625-4^^LN^STOOL^STOOLCULTURE^L|||201102061830|||||||20110208132554|625-4&Stool Culture&LN^^^Stl&Stool&LN|999940^SMITH^MARY^A^^^MD||||||20110208132554|||F|||||||||||||||||||||||
+OBX|1|CE|625-4^Bacteria identified in Stool by Culture^LN||27268008^Genus Shigella^SNM|mm/dL|||||F|||||

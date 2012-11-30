@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app 
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<servlet>
+		<servlet-name>Identifiers</servlet-name>
+			<description>
+				servlet that calls the Linker to provide BioSensePatientId's and BioSenseVisitId's
+    		</description>
+    	<servlet-class>gov.cdc.biosense.dpit.servlet.Identifiers</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Identifiers</servlet-name>
+		<url-pattern>/Identifiers</url-pattern>
+	</servlet-mapping>
+
+
+	<session-config>
+		<session-timeout>30</session-timeout>    <!-- 30 minutes -->
+	</session-config>
+
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Protected Area</web-resource-name>
+			<url-pattern>/viewer/*</url-pattern>	
+		</web-resource-collection>
+
+		<auth-constraint>
+			<role-name>bioSense</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>Authentication Required</realm-name>
+	</login-config>
+      <security-role>
+      <role-name>bioSense</role-name>
+      </security-role>
+
+</web-app>

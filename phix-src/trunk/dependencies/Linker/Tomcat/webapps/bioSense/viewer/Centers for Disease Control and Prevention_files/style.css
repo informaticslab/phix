@@ -1,0 +1,207 @@
+.navBrake {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BORDER-LEFT: white 1.5pt solid
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY {
+	FONT-SIZE: 12px; BACKGROUND: url(images/bg_main.gif) #ffffff fixed 0px 50%; MARGIN: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+A {
+	FONT-SIZE: 100%; CURSOR: pointer; COLOR: #003366; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+.link {
+	FONT-SIZE: 100%; CURSOR: pointer; COLOR: #003366; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+A:hover {
+	CURSOR: pointer; TEXT-DECORATION: none
+}
+.link:hover {
+	CURSOR: pointer; TEXT-DECORATION: none
+}
+TD {
+	FONT-SIZE: 78%; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+P {
+	FONT-SIZE: 95%; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+SPAN {
+	FONT-SIZE: 100%; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.txtNormal {
+	FONT-SIZE: 100%; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.txtglobalHdr {
+	FONT-SIZE: 12px; COLOR: #ffffff
+}
+.txtTitle {
+	FONT-SIZE: 24px; COLOR: #ffffff; FONT-FAMILY: "Book Antique", "Times New Roman", Times, serif; TEXT-ALIGN: left
+}
+.txtSubTitle {
+	FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.txtglobalNav {
+	FONT-WEIGHT: bold; FONT-SIZE: 100%; COLOR: #ffffff; FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif
+}
+.subtxtglobalNav {
+	FONT-WEIGHT: bold; FONT-SIZE: 100%; COLOR: #3300cc; FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif; BACKGROUND-COLOR: #cccccc
+}
+.txtglobalNavselected {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif; BACKGROUND-COLOR: #598ae3
+}
+.tE {
+	FONT-WEIGHT: bold; FONT-SIZE: 95%
+}
+.hmHdrShadow {
+	BACKGROUND-IMAGE: url(images/hmHdrShadow.gif)
+}
+.sidebarShadow {
+	BACKGROUND-IMAGE: url(images/hm_leftNav_shadowbar.gif)
+}
+.txtleftNav {
+	FONT-SIZE: 95%
+}
+.txtFtr {
+	FONT-SIZE: 11px
+}
+.txtftrBottom {
+	FONT-SIZE: 9px
+}
+.globalNavLink {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #ffffff
+}
+.globalNavLinkselected {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff
+}
+.ftrBar {
+	BACKGROUND-IMAGE: url(images/ftrBar.gif)
+}
+.bgftrTop {
+	BACKGROUND-COLOR: #f5f5f5
+}
+.bgftrBottom {
+	BACKGROUND-COLOR: #e5e5e5
+}
+.GreyLine {
+	BACKGROUND-COLOR: #e5e5e5
+}
+.OrangeLine {
+	BACKGROUND-COLOR: #fee57f
+}
+.bgleftNav {
+	BACKGROUND-COLOR: #f8ead2
+}
+.bgHdr {
+	BACKGROUND-IMAGE: url(images/bgHdr.gif)
+}
+.bgEdge {
+	BACKGROUND-IMAGE: url(images/bg_edge.gif)
+}
+.bgglobalNav {
+	BACKGROUND-COLOR: #000000
+}
+.bgcontent {
+	BACKGROUND-COLOR: #ffffff
+}
+.PageHeading {
+	FONT-WEIGHT: normal; FONT-SIZE: 130%; FONT-FAMILY: 'Times New Roman'; BACKGROUND-COLOR: #ffe0a7
+}
+.secHeading {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 20px; BACKGROUND-COLOR: #ffecb9
+}
+.secHeading2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffecb9
+}
+.bgS {
+	FONT-SIZE: 75%; BACKGROUND-COLOR: #ffffe5
+}
+.frmLabel {
+	FONT-WEIGHT: bold
+}
+.bgLightGrey {
+	BACKGROUND-COLOR: #ededed
+}
+.yL {
+	BACKGROUND-COLOR: #e5e5ce
+}
+.txtLarge {
+	FONT-SIZE: 12px
+}
+.boxBackground {
+	BACKGROUND-COLOR: #ffffe5
+}
+.boxBorderGray {
+	BACKGROUND-COLOR: #ccccb7
+}
+.secHeading3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 70%
+}
+.LnkEmphasize {
+	FONT-WEIGHT: bold
+}
+.tblColHdg {
+	FONT-WEIGHT: bold
+}
+.PageTics {
+	BACKGROUND-COLOR: #ffecb9
+}
+.APageTics {
+	FONT-WEIGHT: bold
+}
+.PageTicOn {
+	FONT-WEIGHT: bold
+}
+.rcolBgBox {
+	BACKGROUND-COLOR: #ffffe5
+}
+.rcolSecHeading {
+	FONT-WEIGHT: bold; FONT-SIZE: 130%; PADDING-BOTTOM: 0px
+}
+.txtSubscript {
+	FONT-SIZE: 95%
+}
+.rcolListBox {
+	PADDING-LEFT: 4px
+}
+.txtError {
+	FONT-SIZE: 120%
+}
+.rcolListBoxOn {
+	PADDING-LEFT: 4px; FONT-WEIGHT: bold
+}
+.bold {
+	FONT-SIZE: 120%
+}
+.docTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 110%
+}
+.docDescription {
+	FONT-SIZE: 100%
+}
+.searchButton {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: bottom; PADDING-TOP: 0px
+}
+.globalTable {
+	MARGIN: 0px; HEIGHT: 100%
+}
+.TextMessageTable {
+	BORDER-RIGHT: #f99 1px solid; BORDER-TOP: #f99 1px solid; MARGIN-TOP: 8px; MARGIN-BOTTOM: 10px; BORDER-LEFT: #f99 1px solid; BORDER-BOTTOM: #f99 1px solid
+}
+.TextMessageType {
+	FONT-WEIGHT: bold; FONT-SIZE: 105%
+}
+.TextMessageName {
+	FONT-WEIGHT: bold; FONT-SIZE: 105%
+}
+.TextMessageDescription {
+	
+}
+.box130 {
+	FONT-SIZE: 8pt; WIDTH: 130px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+INPUT {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+SELECT {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, sans-serif
+}

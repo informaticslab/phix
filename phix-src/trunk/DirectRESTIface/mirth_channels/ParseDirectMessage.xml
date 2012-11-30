@@ -1,0 +1,228 @@
+<!--
+   Copyright 2011  U.S. Centers for Disease Control and Prevention
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   $Id$
+  -->
+<channel>
+  <id>dda345f4-73b1-486a-8391-7690a80c9c22</id>
+  <name>ParseDirectMessage</name>
+  <description></description>
+  <enabled>true</enabled>
+  <version>2.1.0.5389</version>
+  <lastModified>
+    <time>1310658786750</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>37</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="binary">0</property>
+      <property name="fileFilter">*.NEW.txt</property>
+      <property name="password">anonymous</property>
+      <property name="regex">0</property>
+      <property name="username">anonymous</property>
+      <property name="moveToDirectory">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/nhin-d-rest/spring-maven-poc/data/drjones@j2mbpj1.us.saic.com</property>
+      <property name="moveToErrorDirectory"></property>
+      <property name="timeout">10000</property>
+      <property name="pollingType">interval</property>
+      <property name="charsetEncoding">DEFAULT_ENCODING</property>
+      <property name="scheme">file</property>
+      <property name="host">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/nhin-d-rest/spring-maven-poc/data/drjones@j2mbpj1.us.saic.com</property>
+      <property name="secure">1</property>
+      <property name="pollingFrequency">10000</property>
+      <property name="validateConnections">1</property>
+      <property name="DataType">File Reader</property>
+      <property name="processBatchFiles">0</property>
+      <property name="checkFileAge">0</property>
+      <property name="passive">1</property>
+      <property name="fileAge">10000</property>
+      <property name="sortAttribute">date</property>
+      <property name="FTPAnonymous">1</property>
+      <property name="moveToPattern">${UUID}.ACK.txt</property>
+      <property name="autoDelete">0</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundProtocol>DELIMITED</inboundProtocol>
+      <outboundProtocol>DELIMITED</outboundProtocol>
+      <inboundProperties>
+        <property name="columnWidths"></property>
+        <property name="recordDelimiter">\n</property>
+        <property name="escapeWithDoubleQuote">true</property>
+        <property name="numberedRows">false</property>
+        <property name="batchSkipRecords">0</property>
+        <property name="quoteChar"></property>
+        <property name="ignoreCR">false</property>
+        <property name="batchMessageDelimiter"></property>
+        <property name="batchGroupingColumn"></property>
+        <property name="batchMessageDelimiterIncluded">false</property>
+        <property name="columnNames"></property>
+        <property name="batchSplitByRecord">false</property>
+        <property name="batchScript"></property>
+        <property name="columnDelimiter"></property>
+        <property name="quoteEscapeChar">\</property>
+      </inboundProperties>
+      <outboundProperties>
+        <property name="columnWidths"></property>
+        <property name="recordDelimiter">\n</property>
+        <property name="escapeWithDoubleQuote">true</property>
+        <property name="numberedRows">false</property>
+        <property name="batchSkipRecords">0</property>
+        <property name="quoteChar"></property>
+        <property name="ignoreCR">false</property>
+        <property name="batchMessageDelimiter"></property>
+        <property name="batchGroupingColumn"></property>
+        <property name="batchMessageDelimiterIncluded">false</property>
+        <property name="columnNames"></property>
+        <property name="batchSplitByRecord">true</property>
+        <property name="batchScript"></property>
+        <property name="columnDelimiter"></property>
+        <property name="quoteEscapeChar">\</property>
+      </outboundProperties>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>File Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <version>2.1.0.5389</version>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector>
+      <name>WriteParsedMessage</name>
+      <properties>
+        <property name="secure">1</property>
+        <property name="scheme">file</property>
+        <property name="binary">0</property>
+        <property name="username">anonymous</property>
+        <property name="outputPattern">${UUID}.output</property>
+        <property name="validateConnections">1</property>
+        <property name="DataType">File Writer</property>
+        <property name="FTPAnonymous">1</property>
+        <property name="timeout">10000</property>
+        <property name="charsetEncoding">DEFAULT_ENCODING</property>
+        <property name="password">anonymous</property>
+        <property name="passive">1</property>
+        <property name="template">${parsedMessage}</property>
+        <property name="outputAppend">0</property>
+        <property name="host">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/nhin-d-rest/spring-maven-poc/data/drjones@j2mbpj1.us.saic.com</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>New Step</name>
+            <script>var prsr = new Packages.com.saic.phlissa.hub.direct.HubDirectReceiver();
+
+var lname = prsr.getLogName();
+
+prsr.parse(messageObject.getRawData().toString(), true);
+
+var parsedMessage = prsr.getMessage();
+
+logger.info(lname + &quot; - Parsed message: &quot; + parsedMessage);
+
+channelMap.put(&quot;parsedMessage&quot;, parsedMessage);</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>var prsr = new Packages.com.saic.phlissa.hub.direct.HubDirectReceiver();
+
+var lname = prsr.getLogName();
+
+prsr.parse(messageObject.getRawData().toString(), true);
+
+var parsedMessage = prsr.getMessage();
+
+logger.info(lname + &quot; - Parsed message: &quot; + parsedMessage);
+
+channelMap.put(&quot;parsedMessage&quot;, parsedMessage);</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>DELIMITED</inboundProtocol>
+        <outboundProtocol>DELIMITED</outboundProtocol>
+        <inboundProperties>
+          <property name="columnWidths"></property>
+          <property name="recordDelimiter">\n</property>
+          <property name="escapeWithDoubleQuote">true</property>
+          <property name="numberedRows">false</property>
+          <property name="batchSkipRecords">0</property>
+          <property name="quoteChar"></property>
+          <property name="ignoreCR">false</property>
+          <property name="batchMessageDelimiter"></property>
+          <property name="batchGroupingColumn"></property>
+          <property name="batchMessageDelimiterIncluded">false</property>
+          <property name="columnNames"></property>
+          <property name="batchSplitByRecord">true</property>
+          <property name="batchScript"></property>
+          <property name="columnDelimiter"></property>
+          <property name="quoteEscapeChar">\</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="columnWidths"></property>
+          <property name="recordDelimiter">\n</property>
+          <property name="escapeWithDoubleQuote">true</property>
+          <property name="numberedRows">false</property>
+          <property name="batchSkipRecords">0</property>
+          <property name="quoteChar"></property>
+          <property name="ignoreCR">false</property>
+          <property name="batchMessageDelimiter"></property>
+          <property name="batchGroupingColumn"></property>
+          <property name="batchMessageDelimiterIncluded">false</property>
+          <property name="columnNames"></property>
+          <property name="batchSplitByRecord">true</property>
+          <property name="batchScript"></property>
+          <property name="columnDelimiter"></property>
+          <property name="quoteEscapeChar">\</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>File Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.0.5389</version>
+    </connector>
+  </destinationConnectors>
+  <properties>
+    <property name="synchronous">true</property>
+    <property name="clearGlobalChannelMap">true</property>
+    <property name="transactional">false</property>
+    <property name="initialState">started</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="max_message_age">-1</property>
+    <property name="store_messages">true</property>
+    <property name="encryptData">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</shutdownScript>
+</channel>

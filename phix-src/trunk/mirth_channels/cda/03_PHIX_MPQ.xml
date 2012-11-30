@@ -1,0 +1,248 @@
+<channel>
+  <id>31e65e54-e4a0-4e1c-9587-391139e6def4</id>
+  <name>03_PHIX_MPQ</name>
+  <description></description>
+  <enabled>false</enabled>
+  <version>2.1.1.5490</version>
+  <lastModified>
+    <time>1329343922312</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>18</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="DataType">File Reader</property>
+      <property name="FTPAnonymous">1</property>
+      <property name="autoDelete">0</property>
+      <property name="binary">0</property>
+      <property name="charsetEncoding">DEFAULT_ENCODING</property>
+      <property name="checkFileAge">1</property>
+      <property name="fileAge">1000</property>
+      <property name="fileFilter">*</property>
+      <property name="host">C:/himss/UC3/INBOUND_CONF_FILE</property>
+      <property name="moveToDirectory">C:/himss/UC3/conf_file_processed</property>
+      <property name="moveToErrorDirectory">C:/himss/UC3/conf_file_error</property>
+      <property name="moveToPattern">${ORIGINALNAME}</property>
+      <property name="passive">1</property>
+      <property name="password">anonymous</property>
+      <property name="pollingFrequency">1000</property>
+      <property name="pollingType">interval</property>
+      <property name="processBatchFiles">0</property>
+      <property name="regex">0</property>
+      <property name="scheme">file</property>
+      <property name="secure">1</property>
+      <property name="sortAttribute">date</property>
+      <property name="timeout">10000</property>
+      <property name="username">anonymous</property>
+      <property name="validateConnections">1</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundProtocol>XML</inboundProtocol>
+      <outboundProtocol>XML</outboundProtocol>
+      <inboundProperties>
+        <property name="stripNamespaces">true</property>
+      </inboundProperties>
+      <outboundProperties>
+        <property name="stripNamespaces">true</property>
+      </outboundProperties>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>File Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <version>2.1.1.5490</version>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector>
+      <name>Call PHORS MPQ</name>
+      <properties>
+        <property name="DataType">Web Service Sender</property>
+        <property name="dispatcherAttachmentContents">&lt;list/&gt;</property>
+        <property name="dispatcherAttachmentNames">&lt;list/&gt;</property>
+        <property name="dispatcherAttachmentTypes">&lt;list/&gt;</property>
+        <property name="dispatcherEnvelope">&lt;soapenv:Envelope  
+  xmlns:q0=&quot;http://service.xdsb.saic.com/&quot;  
+  xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;  
+  xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;  
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;  
+  
+  &lt;soapenv:Header /&gt;  
+ 
+  &lt;soapenv:Body&gt;  
+    &lt;q0:processMPQ&gt;
+      &lt;xmlconfig&gt;&lt;![CDATA[${message.rawData}]]&gt;&lt;/xmlconfig&gt;
+    &lt;/q0:processMPQ&gt;
+  &lt;/soapenv:Body&gt;  
+
+&lt;/soapenv:Envelope&gt; 
+</property>
+        <property name="dispatcherOneWay">0</property>
+        <property name="dispatcherOperation">processMPQ</property>
+        <property name="dispatcherPassword"></property>
+        <property name="dispatcherPort">{http://service.xdsb.saic.com/}xdsbMPQProviderPort</property>
+        <property name="dispatcherReplyChannelId">sink</property>
+        <property name="dispatcherService">{http://service.xdsb.saic.com/}xdsbMPQProviderService</property>
+        <property name="dispatcherSoapAction">urn:ProcessMPQ</property>
+        <property name="dispatcherUseAuthentication">0</property>
+        <property name="dispatcherUseMtom">0</property>
+        <property name="dispatcherUsername"></property>
+        <property name="dispatcherWsdlOperations">&lt;list&gt;
+  &lt;string&gt;processMPQ&lt;/string&gt;
+&lt;/list&gt;</property>
+        <property name="dispatcherWsdlUrl">http://localhost:8500/xdsbprovider2/services/xdsbMPQProviderService.xdsbMPQProviderPort?wsdl</property>
+        <property name="host">localhost:8500/xdsbprovider2/services/xdsbMPQProviderService.xdsbMPQProviderPort?wsdl</property>
+        <property name="queuePollInterval">200</property>
+        <property name="reconnectMillisecs">10000</property>
+        <property name="rotateQueue">0</property>
+        <property name="usePersistentQueues">0</property>
+      </properties>
+      <transformer>
+        <steps/>
+        <inboundProtocol>XML</inboundProtocol>
+        <outboundProtocol>XML</outboundProtocol>
+        <inboundProperties>
+          <property name="stripNamespaces">true</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="stripNamespaces">true</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Web Service Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.1.5490</version>
+    </connector>
+    <connector>
+      <name>Process PHORS Response</name>
+      <properties>
+        <property name="DataType">Channel Writer</property>
+        <property name="host">sink</property>
+        <property name="synchronised">0</property>
+        <property name="template">${message.encodedData}</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>Process PHORS MPQ web service response</name>
+            <script>try
+{
+  logger.info(&quot;Processing PHORS MPQ web svc response&quot;);
+
+  var resp = new XML(responseMap.get(&apos;Call PHORS MPQ&apos;).getMessage());
+  logger.info(resp);
+
+
+  /*
+  if (undefined == resp..*::Body..*::validateWithFilteringResponse.*::[&apos;validationErrors&apos;])
+  {
+    logger.error(&quot;No validationErrors element found in StructuralValidationService response. Recording response to componentErrors variable: &quot; + resp);
+    channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;StructuralValidationService:\n&quot; + resp + &quot; |\n&quot;);
+  }
+  else
+  {
+    var xml = new XML(resp..*::Body..*::[&apos;validateWithFilteringResponse&apos;].toString() );
+    var validationErrors = xml[&apos;validationErrors&apos;].toString();
+
+    if (validationErrors.length &gt; 0)
+    {
+      logger.error(&quot;StructuralValidationService validation errors: &quot; + validationErrors);
+      channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;StructuralValidationService: Validation errors:\n&quot; + validationErrors + &quot; |\n&quot;);
+    }
+  }
+  */
+
+}
+catch(e)
+{
+  logger.error(&quot;Error in Process PHORS MPQ web service response: &quot; + e.message);
+}</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>try
+{
+  logger.info(&quot;Processing PHORS MPQ web svc response&quot;);
+
+  var resp = new XML(responseMap.get(&apos;Call PHORS MPQ&apos;).getMessage());
+  logger.info(resp);
+
+
+  /*
+  if (undefined == resp..*::Body..*::validateWithFilteringResponse.*::[&apos;validationErrors&apos;])
+  {
+    logger.error(&quot;No validationErrors element found in StructuralValidationService response. Recording response to componentErrors variable: &quot; + resp);
+    channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;StructuralValidationService:\n&quot; + resp + &quot; |\n&quot;);
+  }
+  else
+  {
+    var xml = new XML(resp..*::Body..*::[&apos;validateWithFilteringResponse&apos;].toString() );
+    var validationErrors = xml[&apos;validationErrors&apos;].toString();
+
+    if (validationErrors.length &gt; 0)
+    {
+      logger.error(&quot;StructuralValidationService validation errors: &quot; + validationErrors);
+      channelMap.put(&apos;componentErrors&apos;,  $(&apos;componentErrors&apos;) + &quot;StructuralValidationService: Validation errors:\n&quot; + validationErrors + &quot; |\n&quot;);
+    }
+  }
+  */
+
+}
+catch(e)
+{
+  logger.error(&quot;Error in Process PHORS MPQ web service response: &quot; + e.message);
+}</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>XML</inboundProtocol>
+        <outboundProtocol>XML</outboundProtocol>
+        <inboundProperties>
+          <property name="stripNamespaces">true</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="stripNamespaces">true</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>Channel Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.1.5490</version>
+    </connector>
+  </destinationConnectors>
+  <properties>
+    <property name="clearGlobalChannelMap">true</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="encryptData">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="initialState">started</property>
+    <property name="max_message_age">-1</property>
+    <property name="store_messages">true</property>
+    <property name="synchronous">true</property>
+    <property name="transactional">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</shutdownScript>
+</channel>

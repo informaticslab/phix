@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 19.1-b02 (Sun Microsystems Inc.)
+Built-By: ${SAIC.com - DPIT Team}
+
+Name: common
+Specification-Title: BioSenseLinker_200804.01.00
+Specification-Version: 1.0.0
+Specification-Vendor: [SAIC.com for CDC.gov]
+Implementation-Title: BioSenseLinker_200804.01.00
+Implementation-Version: 1.0.0.0 built 2011/06/15 12:19
+Implementation-Vendor: [SAIC.com]
+

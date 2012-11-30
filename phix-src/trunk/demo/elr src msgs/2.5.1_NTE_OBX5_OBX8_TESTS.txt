@@ -1,0 +1,16 @@
+MSH|^~\&|ELR^2.16.840.1.114222.4.3.2.5.2.10^ISO|Lab1^13D34567^CLIA|DOH_APPL^2.16.840.1.114222.4.3.2.5.2.50^ISO|DOH1^2.16.840.1.114222.4.3.2.5.2.7000^ISO|20110511192054-0400||ORU^R01^ORU_R01|201105024|P|2.5.1|||NE|NE|USA||||V251_IG_LB_LABRPTPH_R1_INFORM_2010FEB^^2.16.840.1.114222.4.3.2.5.2.5^ISO
+SFT|Mirth Corp.|2.0|Mirth Connect|789654||20110101
+PID|1||91^^^&2.16.840.1.114222.4.3.2.5.2.2&ISO^MR||NEWMAN^ELSIE^M||19520314|F||2028-9^Asian^HL70005|400 Skylark Avenue^^Cincinnati^OH^45201||^^^^^513^4441234|||||||||2135-2^Hispanic or Latino^HL70189||||||||
+NTE|1||patient comments 1
+NTE|2||patient comments 2
+OBR|1|1105023^^2.16.840.1.114222.4.3.2.5.2.200^ISO|20123^^2.16.840.1.114222.4.3.2.5.2.300^ISO|^^^FLUV^FLUV Cult^L|||201105111230|||||||||999987^WEBSTER^TYLER^N^^^MD||||||201105111920|||F
+NTE|1||ordercomments 1
+NTE|2||ordercomments 2,ordercomments, ordercomments 1ordercomments 1ordercomments 1ordercomments 1ordercomments 1
+OBX|1|CWE|6603-5^FLUV Throat Cult^LN||442352004^Influenza A virus subtype H1N1 (organism)^SNOMED|||H^High^HL70078^^^^^^ABNORMAL TESTRESULT~A^^HL70078|||F|||201105111230|||||201105111920||||Lab1^L^^^^CLIA&2.16.840.1.114222.4.3.2.5.2.100&ISO^^^^1234|1234 Cornell Park Dr^^Blue Ash^OH^45241|9876543^JONES^BOB^F^^^^^^^^^^^^^^^^^MD
+NTE|1|L|result comment 1 with comment source lab indicated
+NTE|2|L|result comment 2 with comment source lab indicated
+NTE|3||result comment 3 with no comment source indicated for optional NTE-2 field
+OBX|2|NM|5432-5^TEST NAME^LN||+2000|mm/dL^^UCUM||^^^^^^^^ABNORMAL TESTRESULT|||F|||201105111230|||||201105111920||||Lab1^L^^^^CLIA&2.16.840.1.114222.4.3.2.5.2.100&ISO^^^^1234|1234 Cornell Park Dr^^Blue Ash^OH^45241|9876543^JONES^BOB^F^^^^^^^^^^^^^^^^^MD
+OBX|3|NM|1245-5^TEST NAME^LN||11000|mm/dL^^UCUM||N^Normal^HL70078~OK^^L|||F|||201105111230|||||201105111920||||Lab1^L^^^^CLIA&2.16.840.1.114222.4.3.2.5.2.100&ISO^^^^1234|1234 Cornell Park Dr^^Blue Ash^OH^45241|9876543^JONES^BOB^F^^^^^^^^^^^^^^^^^MD
+SPM|1|23456&PlacerLab&2.16.840.1.114222.4.3.2.5.2.200&ISO^56789&FillerLab&2.16.840.1.114222.4.3.2.5.2.300&ISO||^^^T^THROAT SWAB^L|||||||||||||201105111230|201105111400
+

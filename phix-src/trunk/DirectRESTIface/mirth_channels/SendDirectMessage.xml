@@ -1,0 +1,248 @@
+<!--
+   Copyright 2011  U.S. Centers for Disease Control and Prevention
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   $Id$
+  -->
+<channel>
+  <id>a4b89ec8-afe3-4e9a-8b5b-84456a1988db</id>
+  <name>SendDirectMessage</name>
+  <description></description>
+  <enabled>true</enabled>
+  <version>2.1.0.5389</version>
+  <lastModified>
+    <time>1310655306171</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>47</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="binary">0</property>
+      <property name="fileFilter">*</property>
+      <property name="password">anonymous</property>
+      <property name="regex">0</property>
+      <property name="username">anonymous</property>
+      <property name="moveToDirectory"></property>
+      <property name="moveToErrorDirectory"></property>
+      <property name="timeout">10000</property>
+      <property name="pollingType">interval</property>
+      <property name="charsetEncoding">DEFAULT_ENCODING</property>
+      <property name="scheme">file</property>
+      <property name="host">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/demo_msgs_in4java</property>
+      <property name="secure">1</property>
+      <property name="pollingFrequency">10000</property>
+      <property name="validateConnections">1</property>
+      <property name="DataType">File Reader</property>
+      <property name="processBatchFiles">0</property>
+      <property name="checkFileAge">0</property>
+      <property name="passive">1</property>
+      <property name="fileAge">1000</property>
+      <property name="sortAttribute">date</property>
+      <property name="FTPAnonymous">1</property>
+      <property name="moveToPattern"></property>
+      <property name="autoDelete">1</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundProtocol>HL7V2</inboundProtocol>
+      <outboundProtocol>HL7V2</outboundProtocol>
+      <inboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictValidation">false</property>
+        <property name="useStrictParser">false</property>
+        <property name="handleSubcomponents">false</property>
+      </inboundProperties>
+      <outboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictValidation">false</property>
+        <property name="useStrictParser">false</property>
+        <property name="handleSubcomponents">false</property>
+      </outboundProperties>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>File Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <version>2.1.0.5389</version>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector>
+      <name>DirectSender</name>
+      <properties>
+        <property name="secure">1</property>
+        <property name="scheme">file</property>
+        <property name="binary">0</property>
+        <property name="username">anonymous</property>
+        <property name="outputPattern">${ORIGINALNAME}_${COUNT}</property>
+        <property name="validateConnections">1</property>
+        <property name="DataType">File Writer</property>
+        <property name="FTPAnonymous">1</property>
+        <property name="timeout">10000</property>
+        <property name="charsetEncoding">DEFAULT_ENCODING</property>
+        <property name="password">anonymous</property>
+        <property name="passive">1</property>
+        <property name="template">${message.rawData}</property>
+        <property name="outputAppend">0</property>
+        <property name="host">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/demo_msgs_out4java</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>CallJava</name>
+            <script>var sndr = new Packages.com.saic.phlissa.hub.direct.HubDirectSender();
+
+var subject = &quot;HL7 Message - &quot; + messageObject.getSource().toString();
+
+var toAddress = &quot;drjones@j2mbpj1.us.saic.com&quot;;
+
+// var toAddress = &quot;drsmith@orl1442.us.saic.com&quot;;
+
+var lname = sndr.getLogName();
+
+logger.info(lname + &quot; - Host: &quot; + sndr.getHost());
+
+logger.info(lname + &quot; - Port: &quot; + sndr.getPort());
+
+logger.info(lname + &quot; - From: &quot; + sndr.getFromAddress());
+
+logger.info(lname + &quot; - To: &quot; + toAddress);
+
+logger.info(lname + &quot; - Subject: &quot; + subject);
+
+logger.info(lname + &quot; - Trust store: &quot; + sndr.getTrustStorePath());
+
+logger.info(lname + &quot; - Trust store password: &quot; + sndr.getTrustStorePassword());
+
+sndr.sendDirectMessage(toAddress, subject, messageObject.getRawData().toString(), true);
+
+var hasError = sndr.hasError();
+
+if (hasError) {
+
+  logger.info(lname + &quot; - Error Message: &quot; + sndr.getErrorMessage());
+
+} else {
+
+  logger.info(lname + &quot; - Message Location: &quot; + sndr.getLocation());
+
+  logger.info(lname + &quot; - Direct Response: &quot; + sndr.getResponse());
+
+}</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>var sndr = new Packages.com.saic.phlissa.hub.direct.HubDirectSender();
+
+var subject = &quot;HL7 Message - &quot; + messageObject.getSource().toString();
+
+var toAddress = &quot;drjones@j2mbpj1.us.saic.com&quot;;
+
+// var toAddress = &quot;drsmith@orl1442.us.saic.com&quot;;
+
+var lname = sndr.getLogName();
+
+logger.info(lname + &quot; - Host: &quot; + sndr.getHost());
+
+logger.info(lname + &quot; - Port: &quot; + sndr.getPort());
+
+logger.info(lname + &quot; - From: &quot; + sndr.getFromAddress());
+
+logger.info(lname + &quot; - To: &quot; + toAddress);
+
+logger.info(lname + &quot; - Subject: &quot; + subject);
+
+logger.info(lname + &quot; - Trust store: &quot; + sndr.getTrustStorePath());
+
+logger.info(lname + &quot; - Trust store password: &quot; + sndr.getTrustStorePassword());
+
+sndr.sendDirectMessage(toAddress, subject, messageObject.getRawData().toString(), true);
+
+var hasError = sndr.hasError();
+
+if (hasError) {
+
+  logger.info(lname + &quot; - Error Message: &quot; + sndr.getErrorMessage());
+
+} else {
+
+  logger.info(lname + &quot; - Message Location: &quot; + sndr.getLocation());
+
+  logger.info(lname + &quot; - Direct Response: &quot; + sndr.getResponse());
+
+}</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>HL7V2</inboundProtocol>
+        <outboundProtocol>HL7V2</outboundProtocol>
+        <inboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictValidation">false</property>
+          <property name="useStrictParser">false</property>
+          <property name="handleSubcomponents">false</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictValidation">false</property>
+          <property name="useStrictParser">false</property>
+          <property name="handleSubcomponents">false</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>File Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.0.5389</version>
+    </connector>
+  </destinationConnectors>
+  <properties>
+    <property name="synchronous">true</property>
+    <property name="clearGlobalChannelMap">true</property>
+    <property name="transactional">false</property>
+    <property name="initialState">started</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="max_message_age">-1</property>
+    <property name="store_messages">true</property>
+    <property name="encryptData">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</shutdownScript>
+</channel>

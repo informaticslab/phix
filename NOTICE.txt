@@ -1,0 +1,13 @@
+Public Health Information eXchange (PHIX)
+Copyright 2011-2012  U.S. Centers for Disease Control and Prevention (CDC)
+
+The portions of this software developed for PHIX by the CDC are released under
+Version 2 of the Apache License (see LICENSE.txt)
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+The DIRECT REST Reference Implementation is licensed under the 3-Clause BSD 
+License.
+
+JBoss AS 5.1.0 is licensed by the LGPL, Version 2.1, February 1999.

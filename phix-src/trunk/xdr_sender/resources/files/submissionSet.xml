@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/*******************************************************************************
+ * Copyright (c) 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
+ -->
+<tns:SubmissionSet xmlns:hl7v2="urn:org:openhealthtools:ihe:common:hl7v2" xmlns:p0="htt//www.w3.org/XML/1998/namespace" xmlns:tns="urn:org:openhealthtools:ihe:xds:metadata" xmlns:xsi="htt//www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:org:openhealthtools:ihe:xds:metadata metadata.xsd urn:org:openhealthtools:ihe:common:hl7v2 ../../../org.openhealthtools.ihe.common.hl7v2/resources/schema/hl7v2_wrapper.xsd htt//www.w3.org/XML/1998/namespace htt//www.w3.org/2001/xml.xsd ">
+  <author>
+   	<authorInstitution>
+ 		<organizationName>SAIC</organizationName>
+  	</authorInstitution>
+  	<authorPerson>
+    	<idNumber>ae21667b95a7792b</idNumber>
+    	<familyName>Paul</familyName>
+  		<givenName>DeJong</givenName>
+  		<assigningAuthorityUniversalId>1.3.6.1.4.1.21367.13.60.80</assigningAuthorityUniversalId>
+		<assigningAuthorityUniversalIdType>ISO</assigningAuthorityUniversalIdType>
+  	</authorPerson>
+  </author>
+  <contentTypeCode>
+    <code>Consult</code>
+    <displayName>
+      <LocalizedString value="Consult"/>
+    </displayName>
+    <schemeName>Connect-a-thon contentTypeCodes</schemeName>
+  </contentTypeCode>
+
+
+  <!-- NA2010 -->
+ <patientId>
+   <idNumber>136141213671320</idNumber>  
+   <assigningAuthorityUniversalId>1.3.6.1.4.1.21367.13.20.2000</assigningAuthorityUniversalId>
+   <assigningAuthorityUniversalIdType>ISO</assigningAuthorityUniversalIdType>
+  </patientId>
+
+  <!--
+   NA2010-ERROR --><!--
+   <patientId>
+   <idNumber>ERROR-REPORTING</idNumber>  
+   <assigningAuthorityUniversalId>1.3.6.1.4.1.21367.2010.1.2.300</assigningAuthorityUniversalId>
+   <assigningAuthorityUniversalIdType>ISO</assigningAuthorityUniversalIdType>
+  </patientId>
+-->
+   </tns:SubmissionSet>

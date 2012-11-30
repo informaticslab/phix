@@ -1,0 +1,258 @@
+INPUT {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TD {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+SELECT {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TD {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TD.title {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.white {
+	FONT-SIZE: 9pt; COLOR: #ffffff
+}
+.ten {
+	FONT-SIZE: 12px; WIDTH: 120px
+}
+.box200 {
+	FONT-SIZE: 8pt; WIDTH: 200px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box190 {
+	FONT-SIZE: 8pt; WIDTH: 190px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box180 {
+	FONT-SIZE: 8pt; WIDTH: 180px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box160 {
+	FONT-SIZE: 8pt; WIDTH: 160px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box140 {
+	FONT-SIZE: 8pt; WIDTH: 140px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box120 {
+	FONT-SIZE: 8pt; WIDTH: 120px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box100 {
+	FONT-SIZE: 8pt; WIDTH: 100px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box90 {
+	FONT-SIZE: 8pt; WIDTH: 90px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box60 {
+	FONT-SIZE: 8pt; WIDTH: 60px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box40 {
+	FONT-SIZE: 8pt; WIDTH: 40px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.box30 {
+	FONT-SIZE: 8pt; WIDTH: 30px; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.t1 {
+	OVERFLOW: auto; WIDTH: 100%; HEIGHT: 370px; BACKGROUND-COLOR: #ff00ff
+}
+.tc {
+	OVERFLOW: auto; WIDTH: 100%; HEIGHT: 400px
+}
+.ts {
+	OVERFLOW: auto; WIDTH: 100%; HEIGHT: 225px
+}
+.lh1 {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("t1").scrollTop-2); BACKGROUND-COLOR: #00ffff
+}
+.lr1 {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("t1").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh2c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc2").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr2c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc2").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh2s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts2").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr2s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts2").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh3c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc3").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr3c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc3").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh3s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts3").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr3s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts3").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh4c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc4").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr4c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc4").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh4s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts4").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr4s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts4").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh5c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc5").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr5c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc5").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh5s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts5").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr5s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts5").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh6c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc6").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr6c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc6").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh6s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts6").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr6s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts6").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh7c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc7").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr7c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc7").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh7s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts7").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr7s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts7").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh8c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc8").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr8c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc8").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh8s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts8").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr8s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts8").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh9c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc9").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr9c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc9").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh9s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts9").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr9s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts9").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh10c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc10").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr10c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc10").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh10s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts10").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr10s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts10").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh11c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc11").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr11c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc11").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh11s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts11").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr11s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts11").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh13c {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("tc13").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr13c {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("tc13").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+.lh13s {
+	Z-INDEX: 20; POSITION: relative; ; TOP: expression(document.getElementById("ts13").scrollTop-2); BACKGROUND-COLOR: #ffffff
+}
+.lr13s {
+	Z-INDEX: 10; ; LEFT: expression(document.getElementById("ts13").scrollLeft); POSITION: relative; BACKGROUND-COLOR: #ffffff
+}
+DIV {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+SPAN.defaultSTInactive {
+	BORDER-RIGHT: #444444 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #444444 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 8pt; VERTICAL-ALIGN: bottom; BORDER-LEFT: #444444 1px solid; CURSOR: default; BORDER-BOTTOM: #444444 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+SPAN.defaultSTHover {
+	BORDER-RIGHT: #444444 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #444444 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; VERTICAL-ALIGN: bottom; BORDER-LEFT: #444444 1px solid; CURSOR: default; BORDER-BOTTOM: #444444 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #dddddd; TEXT-ALIGN: center
+}
+SPAN.defaultSTActive {
+	BORDER-RIGHT: #444444 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #444444 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; VERTICAL-ALIGN: bottom; BORDER-LEFT: #444444 1px solid; CURSOR: default; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+DIV.box {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid
+}
+DIV.defaultSTContent {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: black 1px; DISPLAY: none; PADDING-LEFT: 5px; FONT-SIZE: 10pt; PADDING-BOTTOM: 5px; BORDER-LEFT: black 1px solid; WIDTH: 400px; PADDING-TOP: 5px; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #ffffff
+}
+DIV.defaultSTContainer {
+	PADDING-TOP: 3px; xwidth: 100px
+}
+DIV.contentexample {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: white; BACKGROUND-COLOR: black
+}
+.l {
+	TEXT-ALIGN: left
+}
+.c {
+	TEXT-ALIGN: center
+}
+.r {
+	TEXT-ALIGN: right
+}
+.d {
+	
+}
+.t {
+	VERTICAL-ALIGN: top
+}
+.m {
+	VERTICAL-ALIGN: middle
+}
+.b {
+	VERTICAL-ALIGN: bottom
+}
+.HeaderEmphasis {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #ffffff; FONT-STYLE: italic; FONT-FAMILY: Verdana, Arial, Helvetica; BACKGROUND-COLOR: #680a00
+}
+.DataEmphasis {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #000000; FONT-STYLE: italic; FONT-FAMILY: Verdana, Arial, Helvetica; BACKGROUND-COLOR: #ffffff
+}
+.Data {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; COLOR: #000000; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Helvetica; BACKGROUND-COLOR: #ffffff
+}
+.Header {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffffff; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Helvetica; BACKGROUND-COLOR: #680a00
+}

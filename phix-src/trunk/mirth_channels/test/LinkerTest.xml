@@ -1,0 +1,365 @@
+<!--
+   Copyright 2011  U.S. Centers for Disease Control and Prevention
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   $Id$
+  -->
+<channel>
+  <id>4a25ee6c-bf0f-4787-8881-cb835207b34c</id>
+  <name>LinkerTest</name>
+  <description></description>
+  <enabled>true</enabled>
+  <version>2.1.0.5389</version>
+  <lastModified>
+    <time>1308162676781</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>33</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="binary">0</property>
+      <property name="fileFilter">*.txt</property>
+      <property name="password">anonymous</property>
+      <property name="regex">0</property>
+      <property name="username">anonymous</property>
+      <property name="moveToDirectory">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/demo_msgs_proc</property>
+      <property name="moveToErrorDirectory">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/demo_msgs_err</property>
+      <property name="timeout">10000</property>
+      <property name="pollingType">interval</property>
+      <property name="charsetEncoding">DEFAULT_ENCODING</property>
+      <property name="scheme">file</property>
+      <property name="host">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/demo_msg_in</property>
+      <property name="secure">1</property>
+      <property name="pollingFrequency">30000</property>
+      <property name="validateConnections">1</property>
+      <property name="DataType">File Reader</property>
+      <property name="processBatchFiles">0</property>
+      <property name="checkFileAge">0</property>
+      <property name="passive">1</property>
+      <property name="fileAge">1000</property>
+      <property name="sortAttribute">date</property>
+      <property name="FTPAnonymous">1</property>
+      <property name="moveToPattern">${ORIGINALNAME}_${COUNT}</property>
+      <property name="autoDelete">0</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundProtocol>HL7V2</inboundProtocol>
+      <outboundProtocol>HL7V2</outboundProtocol>
+      <inboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictValidation">false</property>
+        <property name="useStrictParser">false</property>
+        <property name="handleSubcomponents">false</property>
+      </inboundProperties>
+      <outboundProperties>
+        <property name="handleRepetitions">false</property>
+        <property name="stripNamespaces">true</property>
+        <property name="convertLFtoCR">true</property>
+        <property name="useStrictValidation">false</property>
+        <property name="useStrictParser">false</property>
+        <property name="handleSubcomponents">false</property>
+      </outboundProperties>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>File Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <version>2.1.0.5389</version>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector>
+      <name>Linker Destination</name>
+      <properties>
+        <property name="dispatcherMultipart">0</property>
+        <property name="dispatcherSocketTimeout">30000</property>
+        <property name="dispatcherContentType">text/plain</property>
+        <property name="dispatcherParameters">&lt;properties&gt;
+  &lt;property name=&quot;dsPatientAssigningAuthority&quot;&gt;${patientAssigningAuthority}&lt;/property&gt;
+  &lt;property name=&quot;dsPatientIdType&quot;&gt;${patientIDType}&lt;/property&gt;
+  &lt;property name=&quot;middleName&quot;&gt;${patientMiddle}&lt;/property&gt;
+  &lt;property name=&quot;dsVisitIdType&quot;&gt;${visitIDType}&lt;/property&gt;
+  &lt;property name=&quot;dsPatientId&quot;&gt;${patientID}&lt;/property&gt;
+  &lt;property name=&quot;messageType&quot;&gt;${msgType}&lt;/property&gt;
+  &lt;property name=&quot;dsVisitAssigningAuthority&quot;&gt;${visitAssigningAuthority}&lt;/property&gt;
+  &lt;property name=&quot;dsVisitId&quot;&gt;${visitID}&lt;/property&gt;
+  &lt;property name=&quot;firstName&quot;&gt;${patientFName}&lt;/property&gt;
+  &lt;property name=&quot;lastName&quot;&gt;${patientLName}&lt;/property&gt;
+&lt;/properties&gt;</property>
+        <property name="dispatcherContent"></property>
+        <property name="queuePollInterval">200</property>
+        <property name="dispatcherReplyChannelId">sink</property>
+        <property name="rotateQueue">0</property>
+        <property name="dispatcherIncludeHeadersInResponse">0</property>
+        <property name="dispatcherUseAuthentication">1</property>
+        <property name="dispatcherHeaders">&lt;properties/&gt;</property>
+        <property name="host">http://localhost:8500/bioSense/Identifiers</property>
+        <property name="dispatcherCharset">UTF-8</property>
+        <property name="DataType">HTTP Sender</property>
+        <property name="dispatcherPassword">Admin</property>
+        <property name="reconnectMillisecs">10000</property>
+        <property name="usePersistentQueues">0</property>
+        <property name="dispatcherMethod">get</property>
+        <property name="dispatcherAuthenticationType">Basic</property>
+        <property name="dispatcherUsername">Admin</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>create variables for incoming MSH values</name>
+            <script>// extract msg type, trigger event, HL7 version, sending facility, and receiving facility from MSH
+
+// TBD: need to store msg here?  May be overwriting it in next Destination...
+
+SerializerFactory.getHL7Serializer().toXML(message);
+
+logger.info(&quot;Setting msgType=&quot; + msg[&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.2&apos;].toString() );
+channelMap.put(&apos;msgType&apos;, msg[&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.2&apos;].toString() );
+
+logger.info(&quot;Setting patientFName=&quot; + msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString() );
+channelMap.put(&apos;patientFName&apos;, msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString() );
+
+logger.info(&quot;Setting patientLName=&quot; + msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString() );
+channelMap.put(&apos;patientLName&apos;, msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString() );
+
+logger.info(&quot;Setting patientMiddle=&quot; + msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.3&apos;].toString() );
+channelMap.put(&apos;patientMiddle&apos;, msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.3&apos;].toString() );
+
+logger.info(&quot;Setting patientID=&quot; + msg[&apos;PID&apos;][&apos;PID.3&apos;][&apos;PID.3.1&apos;].toString() );
+channelMap.put(&apos;patientID&apos;, msg[&apos;PID&apos;][&apos;PID.3&apos;][&apos;PID.3.1&apos;].toString() );
+
+logger.info(&quot;Setting patientIDType=MRN&quot;);
+channelMap.put(&apos;patientIDType&apos;, &quot;MRN&quot;);
+
+logger.info(&quot;Setting patientAssigningAuthority=&quot; + msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+channelMap.put(&apos;patientAssigningAuthority&apos;, msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+
+logger.info(&quot;Setting visitID=&quot; + msg[&apos;PV1&apos;][&apos;PV1.19&apos;][&apos;PV1.19.1&apos;].toString() );
+channelMap.put(&apos;visitID&apos;, msg[&apos;PV1&apos;][&apos;PV1.19&apos;][&apos;PV1.19.1&apos;].toString() );
+
+logger.info(&quot;Setting visitIDType=AN&quot;);
+channelMap.put(&apos;visitIDType&apos;, &quot;AN&quot;);
+
+logger.info(&quot;Setting visitAssigningAuthority=&quot; + msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+channelMap.put(&apos;visitAssigningAuthority&apos;, msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+
+logger.info(&quot;Initializing component error log&quot;);
+channelMap.put(&apos;componentErrors&apos;, &quot;&quot;);</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>// extract msg type, trigger event, HL7 version, sending facility, and receiving facility from MSH
+
+// TBD: need to store msg here?  May be overwriting it in next Destination...
+
+SerializerFactory.getHL7Serializer().toXML(message);
+
+logger.info(&quot;Setting msgType=&quot; + msg[&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.2&apos;].toString() );
+channelMap.put(&apos;msgType&apos;, msg[&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.2&apos;].toString() );
+
+logger.info(&quot;Setting patientFName=&quot; + msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString() );
+channelMap.put(&apos;patientFName&apos;, msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString() );
+
+logger.info(&quot;Setting patientLName=&quot; + msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString() );
+channelMap.put(&apos;patientLName&apos;, msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString() );
+
+logger.info(&quot;Setting patientMiddle=&quot; + msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.3&apos;].toString() );
+channelMap.put(&apos;patientMiddle&apos;, msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.3&apos;].toString() );
+
+logger.info(&quot;Setting patientID=&quot; + msg[&apos;PID&apos;][&apos;PID.3&apos;][&apos;PID.3.1&apos;].toString() );
+channelMap.put(&apos;patientID&apos;, msg[&apos;PID&apos;][&apos;PID.3&apos;][&apos;PID.3.1&apos;].toString() );
+
+logger.info(&quot;Setting patientIDType=MRN&quot;);
+channelMap.put(&apos;patientIDType&apos;, &quot;MRN&quot;);
+
+logger.info(&quot;Setting patientAssigningAuthority=&quot; + msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+channelMap.put(&apos;patientAssigningAuthority&apos;, msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+
+logger.info(&quot;Setting visitID=&quot; + msg[&apos;PV1&apos;][&apos;PV1.19&apos;][&apos;PV1.19.1&apos;].toString() );
+channelMap.put(&apos;visitID&apos;, msg[&apos;PV1&apos;][&apos;PV1.19&apos;][&apos;PV1.19.1&apos;].toString() );
+
+logger.info(&quot;Setting visitIDType=AN&quot;);
+channelMap.put(&apos;visitIDType&apos;, &quot;AN&quot;);
+
+logger.info(&quot;Setting visitAssigningAuthority=&quot; + msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+channelMap.put(&apos;visitAssigningAuthority&apos;, msg[&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.2&apos;].toString() );
+
+logger.info(&quot;Initializing component error log&quot;);
+channelMap.put(&apos;componentErrors&apos;, &quot;&quot;);</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64">TVNIfF5+XCZ8QURUXjIuMTYuODQwLjEuMTE0MjIyLjQuMy4yLjUuMi4xM15JU098TEFCMV4yLjE2
+Ljg0MC4xLjExNDIyMi40LjMuMi41LjIuNjAwMV5JU098RE9IX0FQUExeMi4xNi44NDAuMS4xMTQy
+MjIuNC4zLjIuNS4yLjUwXklTT3xET0gxXjIuMTYuODQwLjEuMTE0MjIyLjQuMy4yLjUuMi43MDAw
+XklTT3wyMDExMDUwMjA3MTYwN3x8QURUXkEwNF5BRFRfQTAxfDIuMTYuODQwLjEuMTE0MjIyLjQu
+My4yLjUuMi42MDAwMjAxMTA1MDIwNzE2MDcxMTEwfFB8Mi41LjF8fHx8fHx8fHxQSElOX01HX0ZP
+Ul9TU192MS40Xl4yLjE2Ljg0MC4xLjExNDIyMi40LjMuMi41LjIuOF5JU08KRVZOfHwyMDExMDUw
+MjA3MTYwN3x8fHx8QURUIE1FRF4xMjM0NTY3ODkwXk5QSQpQSUR8MXx8M15eXl5NUnx8TEVFXk5B
+TkNZXl5eXl5MfHwxOTU4MDUyMnxGfHwyMTA2LTNeV2hpdGVeQ0RDUkVDfDAwMDEgU01JVEggUk9B
+RF5eQ0lOQ0lOTkFUSV5PSF40NTIyMXx8fHx8fHx8fHx8MjE4Ni01Xk5vdCBIaXNwYW5pY15DRENS
+RUN8fHx8fHx8fE4KUFYxfDF8RXx8fHx8fHx8fHx8fHx8fHx8MzAzXl5eXlZOfHx8fHx8fHx8fHx8
+fHx8fHx8fHx8fHx8fDIwMTEwNDAyMTQ1ODAwClBWMnx8fF5BYm5vcm1hbCBDaGVzdCBTb3VuZHMK
+T0JYfDF8Tk18MjE2MTItN15BR0UgVElNRSBQQVRJRU5UIFJFUE9SVEVEXkxOfHw1M3xhXllFQVJe
+VUNVTXx8fHx8Rnx8fDIwMTEwNDAyMTQ1MzEy</inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>HL7V2</inboundProtocol>
+        <outboundProtocol>HL7V2</outboundProtocol>
+        <inboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>HTTP Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.0.5389</version>
+    </connector>
+    <connector>
+      <name>Linker Output</name>
+      <properties>
+        <property name="secure">1</property>
+        <property name="scheme">file</property>
+        <property name="binary">0</property>
+        <property name="username">anonymous</property>
+        <property name="outputPattern">${ORIGINALNAME}-out.xml</property>
+        <property name="validateConnections">1</property>
+        <property name="DataType">File Writer</property>
+        <property name="FTPAnonymous">1</property>
+        <property name="timeout">10000</property>
+        <property name="charsetEncoding">DEFAULT_ENCODING</property>
+        <property name="password">anonymous</property>
+        <property name="passive">1</property>
+        <property name="template">BioSensePatientId: ${BioSensePatientId}
+BioSenseVisitId: ${BioSenseVisitId}
+</property>
+        <property name="outputAppend">0</property>
+        <property name="host">C:/Documents and Settings/eidsonm/My Documents/PHLISSA/demo_msg_linker_out</property>
+      </properties>
+      <transformer>
+        <steps>
+          <step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>process web service response</name>
+            <script>// process the response to the ComponentRoutingService invocation, storing data to the channelMap
+
+var resp = new XML(responseMap.get(&apos;Linker Destination&apos;).getMessage());
+
+logger.info(&quot;inside transformer, processing Linker Destination response&quot;);
+logger.info(resp);
+
+var xml = new XML(resp);
+
+logger.info(&quot;BioSensePatientId=&quot; + xml[&apos;sBioSensePatientId&apos;]);
+logger.info(&quot;BioSenseVisitId=&quot; + xml[&apos;sBioSenseVisitId&apos;]);
+
+channelMap.put(&apos;BioSensePatientId&apos;, xml[&apos;sBioSensePatientId&apos;]);
+channelMap.put(&apos;BioSenseVisitId&apos;, xml[&apos;sBioSenseVisitId&apos;]);</script>
+            <type>JavaScript</type>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>// process the response to the ComponentRoutingService invocation, storing data to the channelMap
+
+var resp = new XML(responseMap.get(&apos;Linker Destination&apos;).getMessage());
+
+logger.info(&quot;inside transformer, processing Linker Destination response&quot;);
+logger.info(resp);
+
+var xml = new XML(resp);
+
+logger.info(&quot;BioSensePatientId=&quot; + xml[&apos;sBioSensePatientId&apos;]);
+logger.info(&quot;BioSenseVisitId=&quot; + xml[&apos;sBioSenseVisitId&apos;]);
+
+channelMap.put(&apos;BioSensePatientId&apos;, xml[&apos;sBioSensePatientId&apos;]);
+channelMap.put(&apos;BioSenseVisitId&apos;, xml[&apos;sBioSenseVisitId&apos;]);</string>
+              </entry>
+            </data>
+          </step>
+        </steps>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundProtocol>HL7V2</inboundProtocol>
+        <outboundProtocol>HL7V2</outboundProtocol>
+        <inboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </inboundProperties>
+        <outboundProperties>
+          <property name="handleRepetitions">false</property>
+          <property name="stripNamespaces">true</property>
+          <property name="convertLFtoCR">true</property>
+          <property name="useStrictParser">false</property>
+          <property name="useStrictValidation">false</property>
+          <property name="handleSubcomponents">false</property>
+        </outboundProperties>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>File Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <version>2.1.0.5389</version>
+    </connector>
+  </destinationConnectors>
+  <properties>
+    <property name="synchronous">true</property>
+    <property name="clearGlobalChannelMap">true</property>
+    <property name="transactional">false</property>
+    <property name="initialState">stopped</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="max_message_age">-1</property>
+    <property name="store_messages">true</property>
+    <property name="encryptData">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</shutdownScript>
+</channel>

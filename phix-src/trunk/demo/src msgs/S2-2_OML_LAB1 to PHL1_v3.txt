@@ -1,0 +1,51 @@
+MSH|^~\&|EHR_EMR^2.16.840.1.114222.4.3.2.5.2.12^ISO|LAB1^2.16.840.1.114222.4.3.2.5.2.6001^ISO|SPHL^2.16.840.1.114222.4.3.2.5.2.11^ISO|PHL1^2.16.840.1.114222.4.3.2.5.2.6002^ISO|20110511070000.0-0600||OML^O33^OML_O33|2.16.840.1.114222.4.3.2.5.2.6002.20110502071607.0105|P|2.6|||||||||PHLIP_ETOR_Sal_v1.0.2^PHIN^2.16.840.1.114222.4.10.3^ISO~PHLIP_ETOR_Vocab_Sal_v1.0.2^PHIN^2.16.840.1.114222.4.10.4^ISO
+PID|1||987654558A^^^LAB1&2.16.840.1.114222.4.3.2.5.2.6001&ISO^MR||Martin^Susan^^^^^L||19891016|F||2106-3^White^HL70005^^^^2.6|412 Vermont Ave.^^Cincinnati^OH^45241^USA^^^31055||^PRN^PH^^^987^1234567|||||||||N^Not Hispanic or Latino^HL70189^^^^2.6||||||||N
+SPM|1|X200143N05&LAB1&2.16.840.1.114222.4.3.2.5.2.6001&ISO||122575003^Urine specimen^SCT^^^^20110131|||||||||||||20110510163000.0-0600
+
+OBX|1|CWE|PLT210^Original Specimen Type^SCT^^^^1.0.4||122575003^Urine specimen^SCT^^^^20110131^^Test Urine Specimen||||||F|||20110510163000.0-0600
+
+OBX|2|NM|35659-2^Age at specimen collection^LN^^^^2.27||21|a^year^UCUM^^^^1.7|||||F|||20110510163000.0-0600
+ORC|NW|56805-PHL-222^LAB1^2.16.840.1.114222.4.3.2.5.2.6001^ISO|||||||20110209081500.0-0600|||1412941681^Jones^Mary^A^^Dr^^^NPI&2.16.840.1.114222.4.3.2.5.2.400&ISO^L^^^NPI^^^^^^^^MD||^WPN^PH^^^402^5551212^104^Business hours are 8-5 CST|||||||State Public Health Laboratory^L^^^^CLIA&2.16.840.1.114222.4.3.2.5.2.100&ISO^XX^^^28D0012345|9811 State Medical Center^^Cleveland^OH^45242^USA|^WPN^PH^^^402^5551000|8808 North State Cir.^Micro Lab^Cleveland^OH^45242-3698^USA
+
+OBR|1|56805-PHL-222^LAB1^2.16.840.1.114222.4.3.2.5.2.6001^ISO||PLT110^Salmonella Identification and Serotyping Battery^PLT^^^^1.0.4|||20110510163000.0-0600|||||||||1412941681^Jones^Mary^A^^Dr^^^NPI&2.16.840.1.114222.4.3.2.5.2.400&ISO^L^^^NPI^^^^^^^^MD|^WPN^PH^^^402^5551212^104^Business hours are 8-5 CST 
+NTE|1|L|Updated Notes in Patient file|RE^Remark^HL70364^^^^2.6
+ROL||AD|POC^Point Of Contact^HL70443^^^^2.6|988-A^Lewis^Daniel^^^Dr.^^^LAB1&2.16.840.1.114222.4.3.2.5.2.6001&ISO^^^^EN^^^^^^^^PHD||||||SUB^Submitter^HL70406^^^^2.6|9811 State Medical Center^^Cleveland^OH^45242|^WPN^PH^^^402^3342210^10~^WPN^FX^^^402^3341001~^^Internet^daniel.lewis@lab1.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
